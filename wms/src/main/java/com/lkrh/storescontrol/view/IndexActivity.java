@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -45,6 +46,8 @@ public class IndexActivity extends BaseActivity {
         if(!data.equals("")){
             userinfoBean=new Gson().fromJson(data,LoginBean.class);
         }
+
+        Log.i("test","is run");
 
         binding.setUser(userinfoBean);
         binding.tvUsername.setText(userinfoBean.getUsername()+"("+userinfoBean.getAcccode()+")");
