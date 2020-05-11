@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="bean"
+            type="com.lkrh.storescontrol.bean.ArrivalHeadBean"/>
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/layout_title"/>
+            <RelativeLayout
+                android:id="@+id/rl_cwhcode"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title1"
+                    android:text="客户箱码："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_boxcode"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_boxcode"
+                    android:layout_toRightOf="@id/tv_title1"
+                    android:layout_toLeftOf="@id/iv_boxcode"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_hscode"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_hscode"
+                    android:text="瀚氏箱码："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_hscode"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_hscode"
+                    android:layout_toRightOf="@id/tv_hscode"
+                    android:layout_toLeftOf="@id/iv_hscode"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_update"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title3"
+                    android:text="调入仓位："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_updatecwhcode"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_updatecwhcode"
+                    android:layout_toRightOf="@id/tv_title3"
+                    android:layout_toLeftOf="@id/iv_updatecwhcode"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_cdefine10"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title4"
+                    android:text="到货单号："
+                    />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/iv_cdefine10"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_cdefine10"
+                    android:layout_toRightOf="@id/tv_title4"
+                    android:layout_toLeftOf="@id/iv_cdefine10"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_transport"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_transport"
+                    android:text="承运商："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_transport"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_transport"
+                    style="@style/edittext"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_transport"
+                    android:layout_toRightOf="@id/tv_transport" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_customer"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title"
+                    android:text="客户："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_customer"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_customer"
+                    android:layout_toRightOf="@id/tv_title"
+                    android:layout_toLeftOf="@id/iv_customer"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/l_cposition"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="当前货位："
+                    style="@style/textview" />
+                <TextView
+                    android:text="@{bean.cposition}"
+                    style="@style/textview" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="零件号："
+                    style="@style/textview"
+                    />
+                <TextView
+                    android:id="@+id/tv_cusinvcode"
+
+                    style="@style/textview" />
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/rl_iquantityedit"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+
+                    android:id="@+id/tv_title9"
+                    android:text="数量："
+                    />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv_updatecwhcode9"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:inputType="number"
+                    android:text="@{bean.iquantity}"
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_iquantity"
+                    android:layout_toRightOf="@id/tv_title9"
+                    android:layout_toLeftOf="@id/iv_updatecwhcode9"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="装箱数："
+                    style="@style/textview" />
+                <TextView
+                    android:id="@+id/tv_packqty"
+
+                    style="@style/textview" />
+            </LinearLayout>
+            <RelativeLayout
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title2"
+                    android:text="单件条码："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_code"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                   android:layout_centerVertical="true"
+                    android:id="@+id/et_code"
+                    style="@style/edittext"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_code"
+                    android:layout_toRightOf="@id/tv_title2" />
+            </RelativeLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="规格型号："
+                    style="@style/textview"/>
+                <TextView
+                    android:id="@+id/tv_cInvStd"
+                    android:text="@{bean.cInvStd}"
+                    style="@style/textview" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_ccodekey"
+                    android:text="已扫描数："
+                    style="@style/textview" />
+                <TextView
+                    android:id="@+id/tv_count"
+                    style="@style/textview" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_centerVertical="true"
+                android:id="@+id/b_end"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/blue"
+                android:textColor="@android:color/white"
+                android:text="结束"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+
+            <Button
+                android:id="@+id/b_search"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/b_end"
+                android:background="@color/blue"
+                android:text="查看"
+                android:textColor="@android:color/white" />
+
+            <TextView
+
+                android:id="@+id/tv_total"
+                style="@style/textview"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/font_normal"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

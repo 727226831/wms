@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/l_batch"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_key"
+            android:text="供应商批次："
+            style="@style/textview" />
+        <ImageButton
+            android:layout_margin="@dimen/layout_margin"
+            android:scaleType="fitXY"
+            android:id="@+id/ib_upload"
+            android:background="@mipmap/ic_upload"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+    </LinearLayout>
+</LinearLayout>

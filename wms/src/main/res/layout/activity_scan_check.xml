@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+
+    tools:context="com.lkrh.storescontrol.view.ScanCheckActivity">
+    <include
+        android:id="@+id/l_title"
+        layout="@layout/layout_title"/>
+    <RelativeLayout
+
+        android:id="@+id/rl_cwhcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_cwhcode"
+            style="@style/textview"
+            android:gravity="center_vertical"
+            android:text="条码："
+            android:textColor="@color/blue" />
+
+
+        <ImageView
+            android:id="@+id/iv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_scan" />
+
+        <EditText
+            android:id="@+id/et_code"
+            style="@style/edittext"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iv_code"
+            android:layout_toRightOf="@id/tv_cwhcode" />
+
+    </RelativeLayout>
+    <Button
+       android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:id="@+id/b_search"
+        android:layout_margin="10dp"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
+        android:text="检查"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="@dimen/layout_margin"
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_centerVertical="true"
+                android:id="@+id/b_submit"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/blue"
+                android:textColor="@android:color/white"
+                android:text="提交"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+
+
+            <TextView
+
+                android:id="@+id/tv_total"
+                style="@style/textview"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/font_normal"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

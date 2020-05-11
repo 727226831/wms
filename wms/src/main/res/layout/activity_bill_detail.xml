@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="com.lkrh.storescontrol.view.declaration.UnqualifiedListActivity.FunctionAdapter" />
+
+        <variable
+            name="adapter"
+            type="FunctionAdapter" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.PutListActivity">
+        <include
+            android:id="@+id/l_title"
+            layout="@layout/layout_title"/>
+
+        <LinearLayout
+            android:layout_below="@id/l_title"
+            android:orientation="vertical"
+            android:id="@+id/l_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/rl_cwhcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_cwhcode"
+                    style="@style/textview"
+                    android:gravity="center_vertical"
+                    android:text="仓       位："
+                    android:textColor="@color/blue" />
+
+
+                <ImageView
+                    android:id="@+id/iv_cwhcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:src="@mipmap/ic_scan" />
+
+                <ImageView
+                    android:id="@+id/iv_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+
+                    android:layout_toLeftOf="@id/iv_cwhcode"
+                    android:src="@mipmap/help"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/et_cwhcode"
+                    style="@style/edittext"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_help"
+                    android:layout_toRightOf="@id/tv_cwhcode" />
+
+
+                <ImageView
+                    android:id="@+id/iv_clear"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_help"
+                    android:background="@mipmap/clear"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/l_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:visibility="gone"
+                android:id="@+id/b_submit"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/blue"
+                android:textColor="@android:color/white"
+                android:text="提交"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+            <Button
+                android:visibility="gone"
+                android:id="@+id/b_delete"
+                android:layout_margin="10dp"
+                android:layout_toLeftOf="@id/b_submit"
+                android:background="@color/blue"
+                android:textColor="@android:color/white"
+                android:text="删除"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:adapter="@{adapter}"
+            android:layout_above="@id/l_bottom"
+            android:layout_below="@id/l_top"
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+</layout>

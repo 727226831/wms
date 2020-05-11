@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.PutListActivity">
+        <include
+            android:id="@+id/l_title"
+            layout="@layout/layout_title"/>
+        <LinearLayout
+            android:id="@+id/l_one"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:drawableRight="@mipmap/ic_choose"
+                android:layout_margin="@dimen/layout_margin"
+                android:text="待检区一"
+                style="@style/item_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <View style="@style/line"/>
+        <LinearLayout
+            android:id="@+id/l_two"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:drawableRight="@mipmap/ic_choose"
+                android:layout_margin="@dimen/layout_margin"
+                android:text="待检区二"
+                style="@style/item_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <View style="@style/line"/>
+        <LinearLayout
+            android:id="@+id/l_three"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:drawableRight="@mipmap/ic_choose"
+                android:layout_margin="@dimen/layout_margin"
+                android:text="待检区三"
+                style="@style/item_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <View style="@style/line"/>
+        <LinearLayout
+            android:id="@+id/l_four"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:drawableRight="@mipmap/ic_choose"
+                android:layout_margin="@dimen/layout_margin"
+                android:text="待检区四"
+                style="@style/item_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+        <View style="@style/line"/>
+
+
+
+    </LinearLayout>
+</layout>

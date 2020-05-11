@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="com.lkrh.storescontrol.bean.MeterialBean"/>
+    </data>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/form_fontsize"
+            android:text="@{data.cinvname}"
+            android:layout_width="100dp" />
+        <TextView
+            style="@style/form_fontsize"
+            android:text="@{data.cinvcode}"
+            android:layout_width="70dp" />
+        <TextView
+            style="@style/form_fontsize"
+            android:text="@{data.cbatch}"
+            android:layout_width="80dp" />
+        <TextView
+            style="@style/form_fontsize"
+            android:text="@{data.cvenbatch}"
+            android:layout_width="110dp" />
+    </LinearLayout>
+</LinearLayout>
+</layout>

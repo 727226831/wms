@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="bean"
+            type="com.lkrh.storescontrol.bean.ArrivalHeadBean"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/l_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/layout_title"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/textview"
+                        android:id="@+id/tv_title1"
+                        android:text="仓库："
+                        />
+                    <EditText
+                        android:layout_gravity="center_vertical"
+                        style="@style/edittext"
+                        android:id="@+id/et_warehouse"
+                        android:layout_toRightOf="@id/tv_title1"
+                        />
+                </LinearLayout>
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:gravity="center_vertical"
+                        style="@style/textview"
+                        android:id="@+id/tv_title0"
+                        android:text="货位："
+                        />
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:id="@+id/iv_position"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/ic_scan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/et_position"
+                        style="@style/edittext"
+                         android:layout_toRightOf="@id/tv_title0"
+                        android:layout_toLeftOf="@id/iv_position"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        style="@style/textview"
+                        android:text="品名："
+                        />
+                    <EditText
+                        android:id="@+id/et_inventory"
+                        style="@style/edittext"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@id/tv_title1"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center_vertical"
+                        style="@style/textview"
+
+                        android:text="批号："
+                        />
+                    <EditText
+                        android:id="@+id/et_batch"
+                        android:layout_gravity="center_vertical"
+                        style="@style/edittext"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_toRightOf="@id/tv_title1"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_below="@id/l_input"
+            android:id="@+id/b_search"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:text="查询"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+        <LinearLayout
+            android:layout_below="@id/b_search"
+           style="@style/line"></LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/b_search"
+            android:layout_marginTop="9dp" />
+
+    </RelativeLayout>
+
+
+</layout>

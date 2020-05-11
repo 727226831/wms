@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+    </data>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lkrh.storescontrol.view.ProductionOrderActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/layout_title"/>
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_ordertype"
+                android:layout_gravity="center_vertical"
+                style="@style/textview"
+                android:text="订单类型："
+                />
+            <RadioGroup
+                android:id="@+id/rg_ordertype"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_standard"
+                    android:checked="true"
+                    android:text="标准"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_unstandard"
+                    android:text="非标准"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_orderclass"
+
+                style="@style/textview"
+                android:text="订单类别："
+                />
+            <RadioGroup
+                android:layout_marginTop="4dp"
+                android:id="@+id/rg_orderclass"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_orderclass1"
+                    android:checked="true"
+                    android:text="01 注塑"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_orderclass2"
+                    android:text="02 组装"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_orderclass3"
+
+                    android:text="03 植绒"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_orderclass4"
+                    android:text="04 模具生产"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_orderclass5"
+                    android:text="05 检具生产"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_orderclass6"
+                    android:text="06 返修生产"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </RadioGroup>
+
+
+        </LinearLayout>
+        <RelativeLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_title2"
+                android:text="机台号："
+                />
+
+            <EditText
+                android:id="@+id/et_depcode"
+                android:layout_centerVertical="true"
+                style="@style/edittext"
+
+                android:layout_toRightOf="@id/tv_title2"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_title1"
+                android:text="存货编码："
+                />
+
+            <EditText
+                android:id="@+id/et_invcode"
+                android:layout_centerVertical="true"
+                style="@style/edittext"
+
+                android:layout_toRightOf="@id/tv_title1"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_quantity"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_quantity"
+                android:text="数  量："
+                />
+
+            <EditText
+                android:inputType="number"
+                android:layout_centerVertical="true"
+                style="@style/edittext"
+                android:id="@+id/et_quantity"
+                android:layout_toRightOf="@id/tv_quantity"
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_memo"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_memo"
+                android:text="备  注："
+                />
+
+            <EditText
+                android:layout_centerVertical="true"
+                style="@style/edittext"
+                android:id="@+id/et_memo"
+                android:layout_toRightOf="@id/tv_memo"
+
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_centerVertical="true"
+            android:id="@+id/b_submit"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:text="提交"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+
+
+
+
+    </RelativeLayout>
+</RelativeLayout>
+</layout>

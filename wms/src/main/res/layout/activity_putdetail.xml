@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable
+        name="bean"
+        type="com.lkrh.storescontrol.bean.ArrivalHeadBean"/>
+
+
+</data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include layout="@layout/layout_title"/>
+<RelativeLayout
+
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:gravity="center_vertical"
+        style="@style/textview"
+        android:id="@+id/tv_title1"
+        android:text="仓库："
+        />
+    <EditText
+        android:singleLine="true"
+        style="@style/textview"
+        android:layout_width="280dp"
+        android:id="@+id/et_cwhcode"
+        android:layout_toRightOf="@id/tv_title1"
+ />
+    <ImageView
+
+        android:id="@+id/iv_cwhcode"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+    <RelativeLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center_vertical"
+            style="@style/textview"
+            android:id="@+id/tv_title2"
+            android:text="料号："
+ />
+        <EditText
+            android:singleLine="true"
+
+            style="@style/textview"
+            android:layout_width="280dp"
+            android:id="@+id/et_batch"
+            android:layout_toRightOf="@id/tv_title2"
+ />
+        <ImageView
+            android:id="@+id/iv_batch"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="批号："
+            style="@style/textview"
+            />
+        <TextView
+            android:id="@+id/tv_cinvcode"
+            android:text="@{bean.cbatch}"
+
+            style="@style/textview" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tv_count"
+            android:gravity="center_vertical"
+            android:text="数量："
+            style="@style/textview" />
+        <TextView
+            android:layout_toRightOf="@+id/tv_count"
+
+            android:id="@+id/tv_number"
+            style="@style/textview" />
+      <LinearLayout
+          android:layout_marginRight="20dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal"
+          android:layout_alignParentRight="true"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+          <ImageView
+              android:id="@+id/iv_add"
+              android:src="@mipmap/ic_add2"
+              android:layout_width="30dp"
+              android:layout_height="30dp" />
+          <EditText
+              android:gravity="center_horizontal"
+              android:text="1"
+              android:inputType="number"
+              android:id="@+id/et_times"
+              android:layout_width="50dp"
+              android:layout_height="50dp" />
+          <ImageView
+              android:id="@+id/iv_minus"
+             android:src="@mipmap/ic_minus"
+              android:layout_width="30dp"
+              android:layout_height="30dp" />
+
+
+      </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="存货名称："
+            style="@style/textview" />
+        <TextView
+            android:id="@+id/tv_cInvName"
+            android:text="@{bean.cInvName}"
+            style="@style/textview" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="规格型号："
+            style="@style/textview"/>
+        <TextView
+            android:id="@+id/tv_cInvStd"
+             android:text="@{bean.cInvStd}"
+            style="@style/textview" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="单号："
+            style="@style/textview" />
+        <TextView
+            android:id="@+id/tv_ccode"
+            android:text="@{bean.ccode}"
+            style="@style/textview" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l_cvenabbname"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="供应商："
+            style="@style/textview" />
+        <TextView
+            android:id="@+id/tv_cvenabbname"
+             android:text="@{bean.cvenabbname}"
+            style="@style/textview" />
+    </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/b_submit"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/black"
+        android:textColor="@android:color/white"
+        android:text="加入"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+    <Button
+        android:layout_toLeftOf="@id/b_submit"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/b_search"
+        android:layout_margin="10dp"
+
+        android:background="@color/black"
+        android:textColor="@android:color/white"
+        android:text="查看"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+</RelativeLayout>
+</layout>

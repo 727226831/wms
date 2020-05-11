@@ -1,0 +1,352 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.storescontrol.lincon"
+4    android:versionCode="10"
+5    android:versionName="1.3.9" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+11-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:6:5-71
+11-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:6:22-68
+12    <uses-permission android:name="android.permission.READ_PROFILE" />
+12-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:7:5-71
+12-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:7:22-68
+13    <uses-permission android:name="android.permission.READ_CONTACTS" />
+13-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:8:5-72
+13-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:8:22-69
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:9:5-65
+14-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:9:22-62
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:10:5-67
+15-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:10:22-64
+16    <uses-permission android:name="android.permission.VIBRATE" />
+16-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:11:5-66
+16-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:11:22-63
+17    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- 蓝牙权限 -->
+17-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:12:5-69
+17-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:12:22-66
+18    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 安卓6蓝牙权限，必须打开定位权限 -->
+18-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:13:5-81
+18-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:13:22-78
+19    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+19-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:14:5-80
+19-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:14:22-77
+20    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+20-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:15:5-75
+20-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:15:22-72
+21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+21-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:16:5-79
+21-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:16:22-76
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:17:5-76
+22-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:17:22-73
+23    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+23-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:18:5-83
+23-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:18:22-80
+24    <uses-permission android:name="android.permission.BLUETOOTH" />
+24-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:19:5-68
+24-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:19:22-65
+25    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+25-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:20:5-74
+25-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:20:22-71
+26    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+26-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:21:5-81
+26-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:21:22-78
+27    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+27-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:22:5-79
+27-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:22:22-76
+28    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+28-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:23:5-89
+28-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:23:22-86
+29    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+29-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:24:5-78
+29-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:24:22-75
+30
+31    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+32    <uses-feature
+32-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:25:5-27:36
+33        android:name="android.hardware.camera"
+33-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:26:9-47
+34        android:required="false" />
+34-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:27:9-33
+35    <uses-feature
+35-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:28:5-30:36
+36        android:name="android.hardware.camera.front"
+36-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:29:9-53
+37        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+37-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:30:9-33
+38    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+39    <uses-feature
+39-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:33:5-35:36
+40        android:name="android.hardware.camera.autofocus"
+40-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:34:9-57
+41        android:required="false" />
+41-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:35:9-33
+42    <uses-feature
+42-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:36:5-38:36
+43        android:name="android.hardware.camera.flash"
+43-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:37:9-53
+44        android:required="false" />
+44-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:38:9-33
+45    <uses-feature
+45-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:39:5-41:36
+46        android:name="android.hardware.screen.landscape"
+46-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:40:9-57
+47        android:required="false" />
+47-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:41:9-33
+48    <uses-feature
+48-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:42:5-44:36
+49        android:name="android.hardware.wifi"
+49-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:43:9-45
+50        android:required="false" />
+50-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:44:9-33
+51
+52    <application
+52-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:26:5-107:19
+53        android:name="com.lkrh.storescontrol.view.BaseApplication"
+53-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:27:9-45
+54        android:allowBackup="true"
+54-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:28:9-35
+55        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+55-->[androidx.core:core:1.0.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\2e226bffcdb99e95ffa70797d754fb64\core-1.0.0\AndroidManifest.xml:22:18-86
+56        android:debuggable="true"
+57        android:hardwareAccelerated="true"
+57-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:29:9-43
+58        android:icon="@mipmap/ic_app"
+58-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:30:9-38
+59        android:label="@string/app_name"
+59-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:31:9-41
+60        android:networkSecurityConfig="@xml/network_security_config"
+60-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:32:9-69
+61        android:screenOrientation="portrait"
+61-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:33:9-45
+62        android:supportsRtl="true"
+62-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:34:9-35
+63        android:theme="@style/AppTheme.NoActionBar" >
+63-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:35:9-52
+64        <activity android:name="com.lkrh.storescontrol.view.ScanCheckActivity" />
+64-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:36:9-69
+64-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:36:19-57
+65        <activity android:name="com.lkrh.storescontrol.view.HelpActivity" />
+65-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:37:9-55
+65-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:37:19-52
+66        <activity android:name="com.lkrh.storescontrol.view.StockAllocationActivity" />
+66-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:38:9-66
+66-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:38:19-63
+67        <activity android:name="com.lkrh.storescontrol.view.LogisticsDistributionActivity" />
+67-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:39:9-72
+67-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:39:19-69
+68        <activity android:name="com.lkrh.storescontrol.view.ClaimMaterialActivity" />
+68-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:40:9-64
+68-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:40:19-61
+69        <activity android:name="com.lkrh.storescontrol.view.ChartListActivity" />
+69-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:41:9-60
+69-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:41:19-57
+70        <activity android:name="com.lkrh.storescontrol.view.OrderChangeActivity" /> <!-- 配置APP ID -->
+70-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:42:9-62
+70-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:42:19-59
+71        <activity
+71-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:43:9-46:64
+72            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+72-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:44:13-66
+73            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+73-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:45:13-81
+74            android:theme="@android:style/Theme.Translucent" /> <!-- 配置APP版本号 -->
+74-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:46:13-61
+75        <activity android:name="com.lkrh.storescontrol.view.LoginActivity" >
+75-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:47:9-53:20
+75-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:47:19-53
+76            <intent-filter>
+76-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:48:13-52:29
+77                <action android:name="android.intent.action.MAIN" />
+77-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:49:17-69
+77-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:49:25-66
+78
+79                <category android:name="android.intent.category.LAUNCHER" />
+79-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:51:17-77
+79-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:51:27-74
+80            </intent-filter>
+81        </activity> <!-- 配置APP渠道号 -->
+82        <!-- 配置Bugly调试模式（true或者false） -->
+83        <activity android:name="com.lkrh.storescontrol.view.PortActivity" />
+83-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:55:9-55
+83-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:55:19-52
+84        <activity android:name="com.lkrh.storescontrol.view.IndexActivity" />
+84-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:56:9-56
+84-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:56:19-53
+85        <activity android:name="com.lkrh.storescontrol.view.ScanActivity" />
+85-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:57:9-55
+85-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:57:19-52
+86        <activity android:name="com.lkrh.storescontrol.view.PutListActivity" />
+86-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:58:9-58
+86-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:58:19-55
+87        <activity
+87-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:59:9-61:73
+88            android:name="com.lkrh.storescontrol.view.ProductionwarehousingActivity"
+88-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:60:13-63
+89            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+89-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:61:13-70
+90        <activity android:name="com.lkrh.storescontrol.view.ProductionListActivity" />
+90-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:62:9-65
+90-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:62:19-62
+91        <activity android:name="com.lkrh.storescontrol.view.DetailListActivity" />
+91-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:63:9-61
+91-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:63:19-58
+92        <activity
+92-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:64:9-66:73
+93            android:name="com.lkrh.storescontrol.view.StockcheckActivity"
+93-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:65:13-52
+94            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+94-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:66:13-70
+95        <activity android:name="com.lkrh.storescontrol.view.sale.DispatchActivity" />
+95-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:67:9-64
+95-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:67:19-61
+96        <activity android:name="com.lkrh.storescontrol.view.sale.DispatchdetailslistActivity" />
+96-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:68:9-75
+96-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:68:19-72
+97        <activity android:name="com.lkrh.storescontrol.view.PrintActivity" />
+97-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:69:9-56
+97-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:69:19-53
+98        <activity android:name="com.lkrh.storescontrol.view.declaration.ReportActivity" />
+98-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:70:9-69
+98-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:70:19-66
+99        <activity
+99-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:71:9-73:73
+100            android:name="com.lkrh.storescontrol.view.declaration.MaterialActivity"
+100-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:72:13-62
+101            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+101-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:73:13-70
+102        <activity android:name="com.lkrh.storescontrol.view.declaration.ReportprintActivity" />
+102-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:74:9-74
+102-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:74:19-71
+103        <activity android:name="com.lkrh.storescontrol.view.declaration.UnqualifiedListActivity" />
+103-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:75:9-78
+103-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:75:19-75
+104        <activity android:name="com.lkrh.storescontrol.view.PurchaselistActivity" />
+104-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:76:9-63
+104-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:76:19-60
+105        <activity android:name="com.lkrh.storescontrol.view.confirm.ConfirmActivity" />
+105-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:77:9-66
+105-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:77:19-63
+106        <activity android:name="com.lkrh.storescontrol.view.test.AreaselectActivity" />
+106-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:78:9-66
+106-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:78:19-63
+107        <activity android:name="com.lkrh.storescontrol.view.test.TestlistActivity" />
+107-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:79:9-64
+107-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:79:19-61
+108        <activity android:name="com.lkrh.storescontrol.view.inspection.Inspectionlist2Activity" />
+108-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:80:9-77
+108-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:80:19-74
+109        <activity android:name="com.lkrh.storescontrol.view.test.TestActivity" />
+109-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:81:9-60
+109-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:81:19-57
+110        <activity android:name="com.lkrh.storescontrol.view.packinginspetion.PackingInspetionListActivity" />
+110-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:82:9-88
+110-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:82:19-85
+111        <activity android:name="com.lkrh.storescontrol.view.ProductionOrderActivity" />
+111-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:83:9-66
+111-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:83:19-63
+112        <activity android:name="com.lkrh.storescontrol.view.packinginspetion.PackingInspetionActivity" />
+112-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:84:9-84
+112-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:84:19-81
+113        <activity android:name="com.lkrh.storescontrol.view.BillListActivity" />
+113-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:85:9-59
+113-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:85:19-56
+114        <activity android:name="com.lkrh.storescontrol.view.BillDetailActivity" />
+114-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:86:9-61
+114-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:86:19-58
+115
+116        <meta-data
+116-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:88:9-90:42
+117            android:name="BUGLY_APPID"
+117-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:89:13-39
+118            android:value="8a29361815" />
+118-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:90:13-39
+119        <meta-data
+119-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:91:9-93:35
+120            android:name="BUGLY_APP_VERSION"
+120-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:92:13-45
+121            android:value="1.0" />
+121-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:93:13-32
+122        <meta-data
+122-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:94:9-96:36
+123            android:name="BUGLY_ENABLE_DEBUG"
+123-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:95:13-46
+124            android:value="true" />
+124-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:96:13-33
+125
+126        <provider
+126-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:98:9-106:20
+127            android:name="androidx.core.content.FileProvider"
+127-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:99:13-62
+128            android:authorities="com.storescontrol.fileprovider"
+128-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:100:13-65
+129            android:exported="false"
+129-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:101:13-37
+130            android:grantUriPermissions="true" >
+130-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:102:13-47
+131            <meta-data
+131-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:103:13-105:54
+132                android:name="android.support.FILE_PROVIDER_PATHS"
+132-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:104:17-67
+133                android:resource="@xml/file_paths" />
+133-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:105:17-51
+134        </provider>
+135
+136        <activity
+136-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:47:9-53:63
+137            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+137-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:48:13-74
+138            android:clearTaskOnLaunch="true"
+138-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:49:13-45
+139            android:screenOrientation="sensorLandscape"
+139-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:50:13-56
+140            android:stateNotNeeded="true"
+140-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:51:13-42
+141            android:theme="@style/zxing_CaptureTheme"
+141-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:52:13-54
+142            android:windowSoftInputMode="stateAlwaysHidden" />
+142-->[com.journeyapps:zxing-android-embedded:3.6.0] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\753612ca2cc43f39497dbd217d8cd48a\jetified-zxing-android-embedded-3.6.0\AndroidManifest.xml:53:13-60
+143
+144        <provider
+144-->[com.squareup.picasso:picasso:2.71828] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\52e7585c21f1ec2b3e1fca64fecb31bb\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+145            android:name="com.squareup.picasso.PicassoProvider"
+145-->[com.squareup.picasso:picasso:2.71828] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\52e7585c21f1ec2b3e1fca64fecb31bb\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+146            android:authorities="com.example.storescontrol.lincon.com.squareup.picasso"
+146-->[com.squareup.picasso:picasso:2.71828] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\52e7585c21f1ec2b3e1fca64fecb31bb\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+147            android:exported="false" /> <!-- Custom FileProvider for 7.x -->
+147-->[com.squareup.picasso:picasso:2.71828] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\52e7585c21f1ec2b3e1fca64fecb31bb\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+148        <provider
+148-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:27:9-37:20
+149            android:name="com.tencent.bugly.beta.utils.BuglyFileProvider"
+149-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:28:13-74
+150            android:authorities="com.example.storescontrol.lincon.fileProvider"
+150-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:29:13-64
+151            android:exported="false"
+151-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:30:13-37
+152            android:grantUriPermissions="true" >
+152-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:31:13-47
+153            <meta-data
+153-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:103:13-105:54
+154                android:name="android.support.FILE_PROVIDER_PATHS"
+154-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:104:17-67
+155                android:resource="@xml/provider_paths" />
+155-->C:\Users\curry\AndroidStudioProjects\Test\wms\src\main\AndroidManifest.xml:105:17-51
+156        </provider> <!-- 配置tinker合成结果service -->
+157        <service
+157-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:39:9-42:72
+158            android:name="com.tencent.bugly.beta.tinker.TinkerResultService"
+158-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:40:13-77
+159            android:exported="false"
+159-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:41:13-37
+160            android:permission="android.permission.BIND_JOB_SERVICE" />
+160-->[com.tencent.bugly:crashreport_upgrade:1.4.5] C:\Users\curry\.gradle\caches\transforms-2\files-2.1\c4658c475761a2772b395fbdd09b8edc\jetified-crashreport_upgrade-1.4.5\AndroidManifest.xml:42:13-69
+161    </application>
+162
+163</manifest>

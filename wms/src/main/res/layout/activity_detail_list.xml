@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".view.PutListActivity">
+    <include
+        android:id="@+id/l_title"
+        layout="@layout/layout_title"/>
+
+
+    <RelativeLayout
+        android:id="@+id/l_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+           android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:id="@+id/tv_total"
+            android:padding="10dp"
+            android:background="@android:color/transparent"
+            android:layout_width="150dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:text="扫描"
+            android:id="@+id/b_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+        <Button
+            android:layout_toLeftOf="@id/b_scan"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/b_submit"
+            android:layout_margin="10dp"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:text="提交"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/l_line"
+        android:layout_above="@id/l_bottom"
+        style="@style/line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"></LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        style="@style/layout_margin"
+        android:layout_margin="@dimen/font_small"
+        android:layout_above="@id/l_line"
+        android:layout_below="@id/l_title"
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

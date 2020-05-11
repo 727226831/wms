@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_layout"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+
+        android:gravity="center_vertical"
+        style="@style/textview"
+        android:id="@+id/tv_key"
+        android:text="描       述："
+        />
+    <EditText
+        android:padding="5dp"
+        android:gravity="start"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_border"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+</LinearLayout>

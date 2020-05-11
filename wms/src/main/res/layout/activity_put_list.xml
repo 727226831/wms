@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.PutListActivity">
+<include
+    android:id="@+id/l_title"
+    layout="@layout/layout_title"/>
+    <LinearLayout
+        android:id="@+id/l_scan"
+        android:orientation="vertical"
+        android:layout_below="@id/l_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:visibility="gone"
+
+            android:id="@+id/l_plate"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_title1"
+                android:text="车       码："
+                />
+
+            <ImageView
+                android:id="@+id/iv_plate"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_title1"
+                android:layout_toLeftOf="@id/iv_plate"
+                style="@style/edittext"
+                android:id="@+id/et_plate"
+                />
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/iv_clear"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_plate"
+                android:background="@mipmap/clear"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rl_update"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_title3"
+                android:text="调入仓位："
+                />
+
+            <ImageView
+                android:id="@+id/iv_updatecwhcode"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_centerVertical="true"
+                style="@style/edittext"
+                android:id="@+id/et_updatecwhcode"
+                android:layout_toRightOf="@id/tv_title3"
+                android:layout_toLeftOf="@id/iv_updatecwhcode"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:textSize="@dimen/font_normal"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+       style="@style/textview"/>
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/b_submit"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/black"
+        android:textColor="@android:color/white"
+        android:text="提交"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+    <androidx.recyclerview.widget.RecyclerView
+       android:layout_margin="@dimen/layout_margin"
+        android:layout_above="@id/b_submit"
+        android:layout_below="@id/l_scan"
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
+</layout>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="unqualifiedBean"
+            type="com.lkrh.storescontrol.bean.UnqualifiedBean"/>
+    </data>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/textview"
+
+                android:text="生产订单号："
+                />
+            <TextView
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:id="@+id/tv_cmocode"
+                android:text="@{unqualifiedBean.cmocode}"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:text="派工单号："
+                />
+            <TextView
+                android:text="@{unqualifiedBean.ccode}"
+                android:id="@+id/tv_ccode"
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="工序号："
+                />
+            <TextView
+                android:id="@+id/tv_copcode"
+                android:text="@{unqualifiedBean.copcode}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="工序说明："
+                />
+            <TextView
+                android:id="@+id/tv_copname"
+                android:text="@{unqualifiedBean.copname}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="存货编码："
+                />
+            <TextView
+                android:id="@+id/tv_cinvcode"
+                android:text="@{unqualifiedBean.cinvcode}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="名称："
+                />
+            <TextView
+                android:id="@+id/tv_cinvname"
+                android:text="@{unqualifiedBean.cinvname}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="规格型号："
+                />
+            <TextView
+                android:id="@+id/tv_cinvstd"
+                android:text="@{unqualifiedBean.cinvstd}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="不合格数量："
+                />
+            <TextView
+                android:id="@+id/tv_iqty"
+                android:text="@{unqualifiedBean.iqty}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="完工托盘："
+                />
+            <TextView
+                android:id="@+id/tv_ctuopan"
+                android:text="@{unqualifiedBean.ctuopan}"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+
+                android:text="操作员："
+                />
+            <TextView
+                android:text="@{unqualifiedBean.cuser}"
+                android:id="@+id/tv_cuser"
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:layout_marginRight="@dimen/layout_margin"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+</layout>

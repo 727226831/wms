@@ -1,0 +1,210 @@
+[
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_confirm.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_confirm.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_packing_inspetion.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_packing_inspetion.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_order_change.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_order_change.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_production_order.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_production_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_areaselect.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_areaselect.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_codelist.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_codelist.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_confirmlist2.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_confirmlist2.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_dispatchdetails.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_dispatchdetails.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_dhsj.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_dhsj.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_material.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_inspectionlist.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_inspectionlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_test.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_test.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_index.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_index.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_confirm2.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_confirm2.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_production_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_production_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_supplement_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_supplement_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_dhcj.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_dhcj.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_ckkb.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_ckkb.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_inspectionlist2.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_inspectionlist2.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_qualified.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_qualified.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_bill_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_bill_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_qualified_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_qualified_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_claim_material.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_claim_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_unqualified.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_unqualified.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_purchase.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_purchase.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_manage.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_manage.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_productionwarehousing.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_productionwarehousing.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_production_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_production_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_report.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_report.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_testlist.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_testlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_completion1.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_completion1.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_inspection.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_inspection.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_stockcheck.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_stockcheck.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_detail_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_detail_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_put_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_put_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_chart_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_chart_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_confirm1.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_confirm1.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_bill_detail.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_bill_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_completion2.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_completion2.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_input.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_input.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_details.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_packing_inspetion.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_packing_inspetion.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_help.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_print.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_print.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_stockcheck.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_stockcheck.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_confirmlist.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_confirmlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_hwyd.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\item_hwyd.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_stock_allocation.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_stock_allocation.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_logistics_distribution.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_logistics_distribution.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_putdetail.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\Test\\wms\\src\\main\\res\\layout\\activity_putdetail.xml"
+    }
+]

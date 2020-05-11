@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+        <variable
+            name="data"
+            type="com.lkrh.storescontrol.bean.ConfirmlistBean"/>
+    </data>
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@mipmap/ic_round"
+            android:id="@+id/tv_tag"
+            android:src="@mipmap/ic_picture"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_toRightOf="@id/tv_tag"
+            android:id="@+id/l_input"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/layout_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="@{data.field1text}"
+                        android:layout_weight="1"
+                        android:id="@+id/tv_title1"
+                        style="@style/item_small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tv_title2"
+                        style="@style/item_small"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:text="@{data.field2text}" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="@{data.field3text}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_title3"
+
+                        style="@style/item_small"/>
+                    <TextView
+
+                        android:layout_weight="4"
+                        android:text="@{data.field4text}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_title4"
+                        style="@style/item_small"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="@{data.field5text}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_title5"
+
+                        style="@style/item_small"/>
+                    <TextView
+
+                        android:layout_weight="9"
+                        android:text="@{data.field6text}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_title6"
+                        style="@style/item_small"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="@{data.field7text}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_title7"
+
+                        style="@style/item_small"/>
+                    <TextView
+
+                        android:layout_weight="1.9"
+                        android:text="@{data.field8text}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_title8"
+                        style="@style/item_small"/>
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

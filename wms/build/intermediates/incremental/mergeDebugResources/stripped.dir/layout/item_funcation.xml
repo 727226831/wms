@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<Button
+    android:id="@+id/b_funcation"
+    android:background="@android:color/transparent"
+    android:drawableTop="@mipmap/ic_cgrk"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="采购入库"/>
+</LinearLayout>

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.declaration.ReportActivity">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+         <LinearLayout
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/layout_title"/>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title1"
+                    android:text="条码扫描："
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_scan"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_code"
+                    android:layout_toRightOf="@id/tv_title1"
+                    android:layout_toLeftOf="@id/iv_scan"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center_vertical"
+                    style="@style/textview"
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_title2"
+                    android:text="上道完工托盘："
+                    />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/iv_scan2"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_centerVertical="true"
+                    style="@style/edittext"
+                    android:id="@+id/et_ctuopan"
+                    android:layout_toRightOf="@id/tv_title2"
+                    android:layout_toLeftOf="@id/iv_scan2"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="工单号     ："
+                        style="@style/textview"
+                        />
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/tv_cmocode"
+                        style="@style/textview"
+
+                         />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="存货名称："
+                        style="@style/textview"
+                        />
+                    <TextView
+                        android:id="@+id/tv_cInvName"
+                        style="@style/textview" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="当前工序："
+                    style="@style/textview"
+                    />
+                <TextView
+
+                     android:id="@+id/tv_cOpdesc"
+                    style="@style/textview" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="操作员："
+                    style="@style/textview"
+                    />
+                <EditText
+                    android:id="@+id/et_cusercode"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:layout_gravity="center_vertical"
+                    style="@style/edittext"
+                    android:layout_width="200dp"
+                    />
+                <Button
+                    android:id="@+id/b_user"
+                    android:layout_margin="10dp"
+                    android:background="@color/blue"
+                    android:textColor="@android:color/white"
+                    android:text="确定"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+            <LinearLayout
+
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="工单数量："
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/layout_margin"
+                    style="@style/item_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    />
+                <TextView
+
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:id="@+id/tv_imoqty"
+                    style="@style/item_small"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+            <LinearLayout style="@style/line" />
+            <LinearLayout
+                android:id="@+id/ll_qualified"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:drawableRight="@mipmap/ic_choose"
+                    android:layout_margin="@dimen/layout_margin"
+                    android:text="完工合格"
+                    style="@style/item_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="数量 ："
+                        style="@style/textview"
+                        />
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/et_ihgqty"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_gravity="center_vertical"
+                        style="@style/edittext" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="托盘号/挂架号："
+                        style="@style/textview"
+                        />
+                    <EditText
+                        android:id="@+id/et_ctuopan1"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_gravity="center_vertical"
+                        style="@style/edittext" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout style="@style/line" />
+            <LinearLayout
+                android:id="@+id/ll_unqualified"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+
+                    android:drawableRight="@mipmap/ic_choose"
+                    android:layout_margin="@dimen/layout_margin"
+                    android:text="完工不合格"
+                    style="@style/item_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="数量 ："
+                        style="@style/textview"
+                        />
+                    <EditText
+                        android:text="0"
+                        android:inputType="number"
+                        android:id="@+id/et_ibhgqty"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_gravity="center_vertical"
+                        style="@style/edittext" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="托盘号/挂架号："
+                        style="@style/textview"
+                        />
+                    <EditText
+                        android:id="@+id/et_ctuopan2"
+                        android:layout_marginRight="@dimen/layout_margin"
+                        android:layout_gravity="center_vertical"
+                        style="@style/edittext" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="原因："
+                    style="@style/textview"
+                    />
+                <EditText
+                    android:id="@+id/et_cmemo2"
+                    android:layout_marginRight="@dimen/layout_margin"
+                    android:layout_gravity="center_vertical"
+                    style="@style/edittext"
+                    android:layout_width="200dp"
+                    />
+                <Button
+                    android:id="@+id/b_des"
+                    android:layout_margin="10dp"
+                    android:background="@color/blue"
+                    android:textColor="@android:color/white"
+                    android:text="确定"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+            <LinearLayout style="@style/line" />
+
+
+        </LinearLayout>
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+                 <Button
+                     android:layout_alignParentBottom="true"
+                     android:id="@+id/b_submit"
+                     android:layout_margin="10dp"
+                     android:layout_alignParentRight="true"
+                     android:background="@color/blue"
+                     android:textColor="@android:color/white"
+                     android:text="完工填报"
+                     android:layout_width="wrap_content"
+                     android:layout_height="40dp" />
+                 <Button
+                     android:layout_toLeftOf="@id/b_submit"
+                     android:id="@+id/b_material"
+                     android:layout_margin="10dp"
+                     android:layout_alignParentBottom="true"
+                     android:background="@color/blue"
+                     android:textColor="@android:color/white"
+                     android:text="投料"
+                     android:layout_width="wrap_content"
+                     android:layout_height="40dp" />
+             </RelativeLayout>
+
+         </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>

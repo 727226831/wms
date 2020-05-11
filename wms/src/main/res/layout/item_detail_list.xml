@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:background="@mipmap/ic_round"
+        android:id="@+id/tv_tag"
+        android:src="@mipmap/ic_picture"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_toRightOf="@id/tv_tag"
+        android:id="@+id/l_input"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/layout_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/tv_cposition"
+                    style="@style/item_normal"
+                    android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+                <TextView
+
+                    android:layout_weight="1"
+                    android:id="@+id/tv_details"
+                    style="@style/item_normal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    android:text="名称："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_cInvName"
+
+                    style="@style/item_small"/>
+                <TextView
+                    android:visibility="gone"
+                    android:layout_weight="1"
+                    android:text="存货规格："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_CInvStd"
+                    style="@style/item_small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_weight="1"
+                    style="@style/item_small"
+                    android:id="@+id/tv_cBatch"
+                    android:text="批号："
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/tv_iQuantity"
+                    style="@style/item_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+
+
+                    android:id="@+id/tv_completed"
+                    android:layout_weight="1"
+                    style="@style/item_small"
+                    android:text="已扫码:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/blue"
+                    android:id="@+id/tv_incomplete"
+                    android:text="未扫码:"
+                    android:layout_weight="1"
+                    style="@style/item_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+</layout>
