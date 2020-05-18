@@ -139,6 +139,7 @@ public class LoginActivity extends BaseActivity {
                                 }else {
                                     acccode=resultBean.getAcccode();
                                     usercode=resultBean.getUsercode();
+                                    passworld=activityLoginBinding.etPassword.getText().toString();
                                     if(resultBean.getCompany()!=null) {
                                         company = resultBean.getCompany();
                                     }

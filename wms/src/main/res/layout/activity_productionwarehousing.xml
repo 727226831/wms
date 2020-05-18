@@ -228,7 +228,7 @@
                     style="@style/textview"
                     android:textColor="@color/blue"
                     android:id="@+id/tv_boxcode"
-                    android:text="箱码："
+                    android:text="LOT："
                     />
 
                 <ImageView
@@ -592,36 +592,13 @@
 
 
         </LinearLayout>
-            <RelativeLayout
+            <LinearLayout
+                android:gravity="center_vertical"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <Button
-                    android:layout_centerVertical="true"
-                    android:id="@+id/b_submit"
-                    android:layout_margin="10dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@color/blue"
-                    android:textColor="@android:color/white"
-                    android:text="确定"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp" />
-
-                <Button
-                    android:id="@+id/b_search"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_toLeftOf="@id/b_submit"
-                    android:background="@color/blue"
-                    android:text="查看"
-                    android:textColor="@android:color/white" />
-
                 <TextView
-
+                    android:minWidth="75dp"
                     android:id="@+id/tv_total"
                     style="@style/textview"
                     android:layout_centerVertical="true"
@@ -629,7 +606,50 @@
                     android:layout_height="40dp"
                     android:layout_margin="10dp"
                     />
-            </RelativeLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        android:id="@+id/b_adjustment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/blue"
+                        android:text="整拖调整"
+                        android:textColor="@android:color/white" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/b_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:background="@color/blue"
+                        android:text="查看"
+                        android:textColor="@android:color/white" />
+                    <Button
+                        android:layout_weight="1"
+
+                        android:id="@+id/b_submit"
+                        android:layout_margin="5dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/blue"
+                        android:textColor="@android:color/white"
+                        android:text="确定"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp" />
+
+
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
         </RelativeLayout>
 
 </layout>

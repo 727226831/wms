@@ -24,7 +24,7 @@
             android:layout_toRightOf="@id/tv_tag"
             android:id="@+id/l_input"
             android:orientation="horizontal"
-            android:layout_margin="@dimen/layout_margin"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -32,92 +32,96 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <LinearLayout
+                <RelativeLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
                         android:text="@{data.field1text}"
-                        android:layout_weight="1"
+
                         android:id="@+id/tv_title1"
                         style="@style/item_small"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:minWidth="@dimen/min_width"
+                        android:layout_alignParentRight="true"
                         android:text="@{data.field2text}"
-                        android:layout_weight="1.8"
+                        android:layout_marginLeft="5dp"
                         android:id="@+id/tv_title2"
                         style="@style/item_small"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                </LinearLayout>
+                </RelativeLayout>
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
 
-                        android:layout_weight="1"
                         android:text="@{data.field3text}"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_title3"
 
                         style="@style/item_small"/>
                     <TextView
-
-                        android:layout_weight="6"
+                        android:minWidth="@dimen/min_width"
+                        android:layout_marginLeft="5dp"
                         android:text="@{data.field4text}"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/tv_title4"
                         style="@style/item_small"/>
 
                 </LinearLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
-                        android:layout_weight="1"
+
+                        android:minWidth="@dimen/min_width"
+                        android:layout_alignParentRight="true"
+                        android:text="@{data.field6text}"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/tv_title6"
+                        style="@style/item_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_toLeftOf="@id/tv_title6"
                         style="@style/item_small"
                         android:id="@+id/tv_title5"
                         android:text="@{data.field5text}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
-                    <TextView
-                        android:text="@{data.field6text}"
-                        android:layout_weight="1.8"
-                        android:id="@+id/tv_title6"
-                        style="@style/item_small"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
 
-                </LinearLayout>
-                <LinearLayout
+                </RelativeLayout>
+                <RelativeLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-
-                        android:layout_weight="1"
                         style="@style/item_small"
                         android:id="@+id/tv_title7"
                         android:text="@{data.field7text}"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:minWidth="@dimen/min_width"
+                        android:layout_alignParentRight="true"
                         android:textColor="@color/blue"
                         android:text="@{data.field8text}"
-                        android:layout_weight="1.8"
                         android:id="@+id/tv_title8"
                         style="@style/item_small"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                </LinearLayout>
+                </RelativeLayout>
 
 
 

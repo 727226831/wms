@@ -12,7 +12,7 @@ import com.lkrh.storescontrol.R;
 
 
 public class BaseActivity extends AppCompatActivity {
-    public static   String acccode,usercode;
+    public static   String acccode,usercode,passworld;
     public static  String company="";
     public  AlertDialog dialog;
     public static  int qualified=0;

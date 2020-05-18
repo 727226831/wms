@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -117,6 +118,7 @@ public class Untils {
         undone=undone-add;
         confirmlistBean.setField8value(undone+"");
         confirmlistBean.setField8text("未扫数量："+undone);
+        Log.i("未扫数量",undone+"");
     }
 
     public static List<String> parseCode(String code,int type){

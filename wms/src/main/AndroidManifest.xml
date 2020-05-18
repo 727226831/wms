@@ -33,7 +33,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".view.ScanCheckActivity"></activity>
+        <activity android:name=".view.PalletAdjustmentActivity"></activity>
+        <activity android:name=".view.ScanCheckActivity" />
         <activity android:name=".view.HelpActivity" />
         <activity android:name=".view.StockAllocationActivity" />
         <activity android:name=".view.LogisticsDistributionActivity" />

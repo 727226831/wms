@@ -82,8 +82,11 @@ public class BillDetailActivity extends BaseActivity {
                 && !menuBean.getMenushowname().equals("销售出库")
                 && !menuBean.getMenushowname().equals("备货调拨")
         ){
-            binding.lBottom.setVisibility(View.VISIBLE);
-            binding.bSubmit.setVisibility(View.VISIBLE);
+            if(!company.equals("新傲科技")){
+                binding.lBottom.setVisibility(View.VISIBLE);
+                binding.bSubmit.setVisibility(View.VISIBLE);
+            }
+
             if(company.equals("浦东瀚氏") && menuBean.getMenushowname().equals("材料出库")){
                 binding.bDelete.setVisibility(View.VISIBLE);
             }

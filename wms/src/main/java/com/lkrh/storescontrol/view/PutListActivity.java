@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -178,6 +179,18 @@ public class PutListActivity extends BaseActivity {
                       putData();
                   }
                 }else {
+                    if(getIntent().getStringExtra("menuname").equals("材料出库") && company.equals("新傲科技")) {
+                        SharedPreferences detailPreferences = getSharedPreferences(menuBean.getMenucode() + "Detail", 0);
+                        List<ConfirmlistBean> detailsList = Untils.getDetails(detailPreferences);
+                        for (int i = 0; i <detailsList.size() ; i++) {
+                            int undone=Integer.parseInt(detailsList.get(i).getField8value());
+                            if(undone!=0){
+                                Toast.makeText(PutListActivity.this,"有未扫码条目，请完成后再提交",Toast.LENGTH_LONG).show();
+                                return;
+                            }
+                        }
+                    }
+
                     putData();
                 }
 
@@ -317,7 +330,7 @@ public class PutListActivity extends BaseActivity {
 
                 }
 
-                Toast.makeText(PutListActivity.this,bean.getResultMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(PutListActivity.this,bean.getResultMessage(),5*1000).show();
                 textViewtotal.setText("");
                 finish();
 
@@ -379,21 +392,29 @@ public class PutListActivity extends BaseActivity {
                             SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
                             //delete sharedPreferences->scan item
                             String stringscandata="";
-
+                            Log.i("arrivalHeadBeans",new Gson().toJson(arrivalHeadBeans));
                             stringscandata=sharedPreferences.getString(menuBean.getMenucode()+"Scan","");
                             List<String> listcode = new ArrayList<>(Arrays.asList(stringscandata));
-                            for (int j = 0; j <listcode.size() ; j++) {
-                                if(listcode.get(j).contains(arrivalHeadBeans.get(i).getIrowno())){
-                                    listcode.remove(j);
-                                }
-                            }
+
+                            listcode.remove(i);
+//                            for (int j = 0; j <listcode.size() ; j++) {
+//
+//                                if(listcode.get(j).contains(arrivalHeadBeans.get(i).getIrowno())){
+//                                    listcode.remove(j);
+//                                }
+//                            }
 
 
                             if(company.equals("新傲科技")) {
                                 SharedPreferences detailPreferences=getSharedPreferences(menuBean.getMenucode() + "Detail" ,0);
                                 List<ConfirmlistBean> detailsList = Untils.getDetails(detailPreferences);
-                                ConfirmlistBean confirmlistBean = detailsList.get(getIntent().getIntExtra("position", -1));
-                                Untils.updateIquantity(confirmlistBean,-Integer.parseInt(arrivalHeadBeans.get(i).getIquantity()));
+                                for (int j = 0; j <detailsList.size() ; j++) {
+
+                                    if(arrivalHeadBeans.get(i).getcInvCode().equals(detailsList.get(j).getField4value())){
+
+                                        Untils.updateIquantity(detailsList.get(j),-Integer.parseInt(arrivalHeadBeans.get(i).getIquantity()));
+                                    }
+                                }
 
                                 detailPreferences.edit().putString("data",new Gson().toJson(detailsList)).commit();
                             }

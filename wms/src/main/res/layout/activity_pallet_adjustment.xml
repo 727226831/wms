@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lkrh.storescontrol.view.PalletAdjustmentActivity">
+
+        <include layout="@layout/layout_title"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_cwhcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_cwhcode"
+                style="@style/textview"
+                android:gravity="center_vertical"
+                android:text="仓       位："
+                android:textColor="@color/blue" />
+
+
+            <ImageView
+                android:id="@+id/iv_cwhcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:src="@mipmap/ic_scan" />
+
+            <ImageView
+                android:id="@+id/iv_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:layout_toLeftOf="@id/iv_cwhcode"
+                android:src="@mipmap/help"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/et_cwhcode"
+                style="@style/edittext"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_help"
+                android:layout_toRightOf="@id/tv_cwhcode" />
+
+
+            <ImageView
+                android:id="@+id/iv_clear"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/iv_help"
+                android:background="@mipmap/clear"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_update"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center_vertical"
+                style="@style/textview"
+                android:textColor="@color/blue"
+                android:id="@+id/tv_title3"
+                android:text="调入仓位："
+                />
+
+            <ImageView
+                android:id="@+id/iv_updatecwhcode"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/ic_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_centerVertical="true"
+                style="@style/edittext"
+                android:id="@+id/et_updatecwhcode"
+                android:layout_toRightOf="@id/tv_title3"
+                android:layout_toLeftOf="@id/iv_updatecwhcode"
+                />
+        </RelativeLayout>
+    <Button
+        android:id="@+id/b_submit"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
+        android:text="确定"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+</LinearLayout>

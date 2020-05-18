@@ -37,7 +37,7 @@ public class ArrivalHeadBean implements Parcelable {
     private String cverifier;
     private String cInvCCode;
     private String cInvCName;
-    private String cInvCode;
+    private String cInvCode="";
     private String cInvAddCode;
     private String cInvName;
     private String cInvStd;

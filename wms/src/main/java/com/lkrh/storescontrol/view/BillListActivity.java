@@ -77,6 +77,9 @@ public class BillListActivity extends BaseActivity {
                 return false;
             }
         });
+        if(company.equals("新傲科技")){
+            binding.lSearch.setVisibility(View.VISIBLE);
+        }
         binding.ivCcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +91,13 @@ public class BillListActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 tag=1;
+                openScan();
+            }
+        });
+        binding.ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tag=2;
                 openScan();
             }
         });
@@ -105,6 +115,23 @@ public class BillListActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                search(editable.toString());
+            }
+        });
+        binding.etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                tag=2;
                 search(editable.toString());
             }
         });
@@ -146,6 +173,15 @@ public class BillListActivity extends BaseActivity {
                             }
                         }).start();
                         break;
+                    case 2:
+                        binding.etSearch.setText(code);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                search(code);
+                            }
+                        }).start();
+                        break;
                 }
 
 
@@ -161,10 +197,16 @@ public class BillListActivity extends BaseActivity {
     private void search(String key) {
         searchList=new ArrayList<>();
         for (int i = 0; i <list.size() ; i++) {
-            if(list.get(i).getField8value().contains(key)){
-                Log.i("list",list.get(i).getField1value());
-                searchList.add(list.get(i));
+            if(tag==2){
+                if(list.get(i).getField3value().contains(key)){
+                    searchList.add(list.get(i));
+                }
+            }else {
+                if(list.get(i).getField8value().contains(key)){
+                    searchList.add(list.get(i));
+                }
             }
+
         }
         adapter = new Confirm2Adapter(searchList);
         recyclerView.setAdapter(adapter);
@@ -235,6 +277,7 @@ public class BillListActivity extends BaseActivity {
         @Override
         public Confirm2Adapter.VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
            binding= DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.item_codelist,viewGroup,false);
+
             return new Confirm2Adapter.VH(binding.getRoot());
         }
         private List<ConfirmlistBean> mDatas;

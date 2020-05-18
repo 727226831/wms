@@ -47,7 +47,7 @@ public class IndexActivity extends BaseActivity {
             userinfoBean=new Gson().fromJson(data,LoginBean.class);
         }
 
-        Log.i("test","is run");
+
 
         binding.setUser(userinfoBean);
         binding.tvUsername.setText(userinfoBean.getUsername()+"("+userinfoBean.getAcccode()+")");
@@ -116,11 +116,20 @@ public class IndexActivity extends BaseActivity {
 
                     }else   if(userinfoBean.getMenu().get(i).getMenushowname().equals("到货入库")){
                         intent  =new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
-                    }else   if(userinfoBean.getMenu().get(i).getMenushowname().equals("生产入库")){
-                        intent  =new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
+                    }else   if(userinfoBean.getMenu().get(i).getMenucode().equals("SCRK")){
+                        //生产入库 产成品入库
+                        if(company.equals("新傲科技")){
+                            intent  =new Intent(IndexActivity.this, BillListActivity.class);
+                        }else {
+                            intent  =new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
+                        }
+
+
                     }else   if(userinfoBean.getMenu().get(i).getMenushowname().equals("其他入库")){
                         if(company.equals("瑞格菲克斯")||company.equals("林肯SKF")) {
                             intent  =new Intent(IndexActivity.this, ChartListActivity.class);
+                        }else  if(company.equals("新傲科技")){
+                            intent  =new Intent(IndexActivity.this, BillListActivity.class);
                         }else {
                             intent = new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
                         }
@@ -172,7 +181,12 @@ public class IndexActivity extends BaseActivity {
 
                     }else if(userinfoBean.getMenu().get(i).getMenushowname().equals("销售出库")){
                       //  intent  =new Intent(IndexActivity.this, BillListActivity.class);
-                        intent  =new Intent(IndexActivity.this, StockAllocationActivity.class);
+                        if(company.equals("新傲科技")){
+                            intent  =new Intent(IndexActivity.this, BillListActivity.class);
+                        }else {
+                            intent  =new Intent(IndexActivity.this, StockAllocationActivity.class);
+                        }
+
                     }else if(userinfoBean.getMenu().get(i).getMenushowname().equals("采购退料")){
                         intent  =new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
 

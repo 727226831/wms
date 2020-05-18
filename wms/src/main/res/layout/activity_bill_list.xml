@@ -97,6 +97,31 @@
 
 
             </RelativeLayout>
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/l_search"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/ic_scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_search"
+                    style="@style/edittext"
+                    android:id="@+id/et_search"
+                    />
+
+
+
+            </RelativeLayout>
             <View style="@style/line"/>
         </LinearLayout>
 
