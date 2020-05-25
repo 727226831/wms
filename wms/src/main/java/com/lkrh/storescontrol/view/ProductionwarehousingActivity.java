@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import com.lkrh.storescontrol.bean.ConfirmBean;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.bean.ProductBean;
+import com.lkrh.storescontrol.bean.ScanCheckBean;
 import com.lkrh.storescontrol.bean.WarehouseBean;
 import com.lkrh.storescontrol.databinding.ActivityProductionwarehousingBinding;
 import com.lkrh.storescontrol.untils.iToast;
@@ -79,9 +81,6 @@ public class ProductionwarehousingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this, R.layout.activity_productionwarehousing);
 
-
-
-
         Untils.initTitle(getIntent().getStringExtra("menuname"),this);
         sharedPreferences=getSharedPreferences("sp",MODE_PRIVATE);
         menuBean=getIntent().getParcelableExtra("menubean");
@@ -93,6 +92,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
         if(menuBean.getMenucode().equals("SCRK")
            ||getIntent().getStringExtra("menuname").equals("其他入库")
+                ||menuBean.getMenucode().equals("HZCLCK")
         ){
             binding.lCvenabbname.setVisibility(View.GONE);
             useEditIquantity();
@@ -115,6 +115,25 @@ public class ProductionwarehousingActivity extends BaseActivity {
         }else if(getIntent().getStringExtra("menuname").equals("其他出库")){
             binding.lCvenabbname.setVisibility(View.GONE);
               useEditIquantity();
+            if(company.equals("新傲科技")){
+
+                    useEditIquantity();
+
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+                binding.tvCinvcode.setVisibility(View.GONE);
+                binding.rlCwhcode.setVisibility(View.GONE);
+
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity("25");
+
+                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
+                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
+                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
+                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
+
+                binding.setBean(arrivalHeadBean);
+            }
         }else if(getIntent().getStringExtra("menuname").equals("材料出库")){
             binding.lCvenabbname.setVisibility(View.GONE);
 
@@ -127,7 +146,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.lBoxcode.setVisibility(View.VISIBLE);
                 binding.tvCinvcode.setVisibility(View.GONE);
                 binding.rlCwhcode.setVisibility(View.GONE);
-                useEditIquantity();
+
+
+                    useEditIquantity();
 
                 arrivalHeadBean=new ArrivalHeadBean();
                 arrivalHeadBean.setIquantity("25");
@@ -175,9 +196,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.tvBoxcode.setText("箱码：");
 
 
-                if(confirmlistBean.getField5value().isEmpty()){
+
                   useEditIquantity();
-                }
+
                 arrivalHeadBean=new ArrivalHeadBean();
                 arrivalHeadBean.setIquantity("25");
 
@@ -258,7 +279,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.lBoxcode.setVisibility(View.VISIBLE);
                 binding.tvCinvcode.setVisibility(View.GONE);
                 binding.rlCwhcode.setVisibility(View.GONE);
-                useEditIquantity();
+
+                    useEditIquantity();
+
 
                 arrivalHeadBean=new ArrivalHeadBean();
                 arrivalHeadBean.setIquantity("25");
@@ -283,6 +306,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
             if(company.equals("浦东瀚氏")){
                 binding.rlTransport.setVisibility(View.VISIBLE);
                 binding.rlMemo.setVisibility(View.VISIBLE);
+
 
             }
 
@@ -351,6 +375,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
             }
         });
+
+
+
         binding.etCwhcode.setOnKeyListener(onKeyListener);
         binding.etUpdatecwhcode.setOnKeyListener(onKeyListener);
         binding.etBatch.setOnKeyListener(onKeyListener);
@@ -358,17 +385,8 @@ public class ProductionwarehousingActivity extends BaseActivity {
         binding.etDock.setOnKeyListener(onKeyListener);
         binding.etTray.setOnKeyListener(onKeyListener);
         binding.etYhCode.setOnKeyListener(onKeyListener);
-        binding.etBoxcode.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (i == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-                    if(binding.rlIquantityedit.getVisibility()==View.GONE){
-                        checkBoxCode(binding.etBoxcode.getText().toString());
-                    }
-                }
-                return true;
-            }
-        });
+        binding.etBoxcode.setOnKeyListener(onKeyListener);
+
 
 
 
@@ -386,6 +404,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
         binding.etIquantity.setOnKeyListener(onKeyListener);
         binding.ivTransport.setOnClickListener(onClickListener);
         binding.ivClear.setOnClickListener(onClickListener);
+
         binding.ivTray.setOnClickListener(onClickListener);
         binding.ivHelp.setOnClickListener(onClickListener);
         binding.ivYhCode.setOnClickListener(onClickListener);
@@ -458,7 +477,13 @@ public class ProductionwarehousingActivity extends BaseActivity {
                         binding.etBoxcode.setText(code);
                         if(binding.rlIquantityedit.getVisibility()==View.GONE){
                             checkBoxCode(code);
+                        }else {
+                            if(binding.rlCwhcode.getVisibility()==View.GONE){
+                                arrivalHeadBean.setIquantity(binding.etIquantity.getText().toString());
+                                checkBoxCode(binding.etBoxcode.getText().toString());
+                            }
                         }
+
 
                         break;
 
@@ -503,6 +528,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
             }
         }
+
 
         if(binding.rlCwhcode.getVisibility()==View.VISIBLE ){
             if(binding.etCwhcode.getText().toString().isEmpty()){
@@ -549,6 +575,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                     arrivalHeadBean.setcInvCode(detailsList.get(i).getField4value());
                     arrivalHeadBean.setCbatch(detailsList.get(i).getField5value());
                     arrivalHeadBean.setcInvName(detailsList.get(i).getField3value());
+                    arrivalHeadBean.setIquantity(detailsList.get(i).getField8value());
                     binding.setBean(arrivalHeadBean);
                     update(detailsList.get(i));
                     isVerification = true;
@@ -559,9 +586,8 @@ public class ProductionwarehousingActivity extends BaseActivity {
             if (!isVerification) {
                 Toast.makeText(ProductionwarehousingActivity.this, "未能匹配发货单或发货单已满！", Toast.LENGTH_LONG).show();
                 binding.etBoxcode.setText("");
-                binding.etBoxcode.setFocusable(true);
-                binding.etBoxcode.setFocusableInTouchMode(true);
-                binding.etBoxcode.requestFocus();
+
+
                 return;
             } else {
                 isVerification = false;
@@ -579,6 +605,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
     View.OnKeyListener onKeyListener=new View.OnKeyListener() {
         @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
+            Log.i("on key",keyCode+"/"+event.toString());
             if(keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                 switch (v.getId()) {
                     case R.id.et_cwhcode:
@@ -613,13 +640,27 @@ public class ProductionwarehousingActivity extends BaseActivity {
                     case R.id.et_yh_code:
                         getBarcodeValues(binding.etYhCode.getText().toString(),3);
                         break;
+                    case R.id.et_boxcode:
+
+                       if(!detailsList.isEmpty()){
+                           if(!detailsList.get(0).getField5value().isEmpty()){
+                               arrivalHeadBean.setIquantity(binding.etIquantity.getText().toString());
+                               checkBoxCode(binding.etBoxcode.getText().toString());
+                           }
+                       }
+
+                        break;
 
 
 
                 }
             }
+            if(event.getAction()==KeyEvent.ACTION_UP){
+                return  true;
+            }else {
+                return false;
+            }
 
-            return false;
         }
     };
     //0 position 1num
@@ -684,8 +725,11 @@ public class ProductionwarehousingActivity extends BaseActivity {
                                        public void onClick(DialogInterface dialog, int i) {
                                            cwhcode = warehouseBean.getPosformdata().get(i).getCwhcode();
                                            cposition = warehouseBean.getPosformdata().get(i).getCposition();
-                                           binding.etCwhcode.setText(warehouseBean.getPosformdata().get(i).getCposition()
-                                                   + "\\" + warehouseBean.getPosformdata().get(i).getCwhName());
+                                           if(company.equals("新傲科技")){
+                                               binding.etCwhcode.setText(warehouseBean.getPosformdata().get(i).getCPositionName()
+                                                       + "\\" + warehouseBean.getPosformdata().get(i).getCwhcode());
+                                           }
+
 
                                            dialog.dismiss();
                                        }
@@ -694,7 +738,12 @@ public class ProductionwarehousingActivity extends BaseActivity {
                                }else {
                                    cwhcode = warehouseBean.getFormdata().getCwhcode();
                                    cposition = warehouseBean.getFormdata().getCposition();
-                                   binding.etCwhcode.setText(warehouseBean.getFormdata().getCposition() + "\\" + warehouseBean.getFormdata().getCwhName());
+                                   if(company.equals("新傲科技")){
+                                       binding.etCwhcode.setText(warehouseBean.getFormdata().getCPositionName() + "\\" + warehouseBean.getFormdata().getCwhcode());
+                                   }else {
+                                       binding.etCwhcode.setText(warehouseBean.getFormdata().getCposition() + "\\" + warehouseBean.getFormdata().getCwhName());
+                                   }
+
                                }
 
                            }else {
@@ -770,9 +819,11 @@ public class ProductionwarehousingActivity extends BaseActivity {
                                        public void onClick(DialogInterface dialog, int i) {
                                            inwhcode =warehouseBean.getPosformdata().get(i).getCwhcode();
                                            inposition=warehouseBean.getPosformdata().get(i).getCposition();
-                                           binding.etUpdatecwhcode.setText(warehouseBean.getPosformdata().get(i).getCposition()
-                                                   +"\\"+warehouseBean.getPosformdata().get(i).getCwhName());
 
+                                           if(company.equals("新傲科技")){
+                                               binding.etUpdatecwhcode.setText(warehouseBean.getPosformdata().get(i).getCPositionName()
+                                                       + "\\" + warehouseBean.getPosformdata().get(i).getCwhcode());
+                                           }
                                            dialog.dismiss();
                                        }
                                    }).show();
@@ -780,7 +831,12 @@ public class ProductionwarehousingActivity extends BaseActivity {
                                }else {
                                    inwhcode =warehouseBean.getFormdata().getCwhcode();
                                    inposition=warehouseBean.getFormdata().getCposition();
-                                   binding.etUpdatecwhcode.setText(warehouseBean.getFormdata().getCposition()+"\\"+warehouseBean.getFormdata().getCwhName());
+                                   if(company.equals("新傲科技")){
+                                       binding.etUpdatecwhcode.setText(warehouseBean.getFormdata().getCPositionName() + "\\" + warehouseBean.getFormdata().getCwhcode());
+                                   }else {
+                                       binding.etUpdatecwhcode.setText(warehouseBean.getFormdata().getCposition() + "\\" + warehouseBean.getFormdata().getCwhName());
+                                   }
+
                                }
 
                            }else {
@@ -935,6 +991,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 case R.id.iv_clear:
                     binding.etCwhcode.setText("");
                     break;
+
                 case  R.id.iv_help:
                     intent=new Intent(ProductionwarehousingActivity.this,HelpActivity.class);
                     intent.putExtra("cwhcode",binding.etCwhcode.getText().toString());
@@ -954,7 +1011,11 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 jsonObject.put("usercode",usercode);
                 jsonObject.put("acccode",acccode);
                 jsonObject.put("menucode",menuBean.getMenucode());
-                jsonObject.put("layout","2");
+                if(company.equals("新傲科技")){
+                    jsonObject.put("layout",passworld);
+                }else {
+                    jsonObject.put("layout","2");
+                }
                 jsonObject.put("button",text);
                 jsonObject.put("condition","");
                 jsonObject.put("formdata",new Gson().toJson(arrivalHeadBean));
@@ -1251,7 +1312,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
         arrivalHeadBeans.add(arrivalHeadBean);
         String strings = new Gson().toJson(arrivalHeadBeans);
-
+        Log.i(menuBean.getMenucode()+"List", strings);
         sharedPreferences.edit().putString(menuBean.getMenucode()+"List", strings).commit();
 
         if(company.equals("林肯SKF")) {

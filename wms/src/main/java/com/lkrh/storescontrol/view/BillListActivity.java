@@ -26,7 +26,9 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
+import com.lkrh.storescontrol.bean.GuideBean;
 import com.lkrh.storescontrol.bean.LoginBean;
+import com.lkrh.storescontrol.bean.ScanCheckBean;
 import com.lkrh.storescontrol.databinding.ActivityBillListBinding;
 import com.lkrh.storescontrol.databinding.ItemCodelistBinding;
 import com.lkrh.storescontrol.url.Request;
@@ -131,12 +133,23 @@ public class BillListActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+
                 tag=2;
                 search(editable.toString());
             }
         });
+
+
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         getData();
     }
+
     private void openScan() {
 
         new IntentIntegrator(BillListActivity.this)
@@ -195,17 +208,14 @@ public class BillListActivity extends BaseActivity {
 
 
     private void search(String key) {
+        Log.i("key-->",key);
         searchList=new ArrayList<>();
         for (int i = 0; i <list.size() ; i++) {
-            if(tag==2){
-                if(list.get(i).getField3value().contains(key)){
-                    searchList.add(list.get(i));
-                }
-            }else {
-                if(list.get(i).getField8value().contains(key)){
-                    searchList.add(list.get(i));
-                }
+            String string=new Gson().toJson(list.get(i));
+            if(string.contains(key)){
+              searchList.add(list.get(i));
             }
+
 
         }
         adapter = new Confirm2Adapter(searchList);
@@ -300,7 +310,14 @@ public class BillListActivity extends BaseActivity {
             binding.rlLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(BillListActivity.this, BillDetailActivity.class);
+                    Intent intent=null;
+                    if(company.equals("新傲科技") && menuBean.getMenushowname().equals("扫码检查")){
+                        intent=new Intent(BillListActivity.this, ScanCheckActivity.class);
+                        intent.putExtra("ConfirmlistBean",mDatas.get(i));
+                    }else {
+                        intent=new Intent(BillListActivity.this, BillDetailActivity.class);
+
+                    }
                     intent.putExtra("condition",data);
                     intent.putExtra("menubean",menuBean);
                     intent.putExtra("menuname", menuBean.getMenushowname());

@@ -102,6 +102,7 @@ public class ArrivalHeadBean implements Parcelable {
     private  String inwhcode;
     private  String cposition;
     private  String material;
+    //批号
     private  String cbatch;
     private  String iquantity;
     private String barcode;

@@ -125,6 +125,8 @@ public class IndexActivity extends BaseActivity {
                         }
 
 
+                    }else   if(userinfoBean.getMenu().get(i).getMenucode().equals("HZCLCK")){
+                        intent  =new Intent(IndexActivity.this, BillListActivity.class);
                     }else   if(userinfoBean.getMenu().get(i).getMenushowname().equals("其他入库")){
                         if(company.equals("瑞格菲克斯")||company.equals("林肯SKF")) {
                             intent  =new Intent(IndexActivity.this, ChartListActivity.class);
@@ -136,6 +138,8 @@ public class IndexActivity extends BaseActivity {
                     }else   if(userinfoBean.getMenu().get(i).getMenushowname().equals("其他出库")){
                         if(company.equals("瑞格菲克斯")||company.equals("林肯SKF")) {
                             intent  =new Intent(IndexActivity.this, ChartListActivity.class);
+                        }else  if(company.equals("新傲科技")){
+                            intent  =new Intent(IndexActivity.this, BillListActivity.class);
                         }else {
                             intent = new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
                         }
@@ -200,7 +204,7 @@ public class IndexActivity extends BaseActivity {
                         intent  =new Intent(IndexActivity.this, ProductionwarehousingActivity.class);
 
                     }else if(userinfoBean.getMenu().get(i).getMenushowname().equals("扫码检查")){
-                        intent  =new Intent(IndexActivity.this, ScanCheckActivity.class);
+                        intent  =new Intent(IndexActivity.this, BillListActivity.class);
 
                     }else {
                         return;

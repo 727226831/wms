@@ -1,9 +1,8 @@
 package com.lkrh.storescontrol.view
 
-import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-
 import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -18,7 +17,9 @@ import com.google.gson.Gson
 import com.google.zxing.integration.android.IntentIntegrator
 import com.lkrh.storescontrol.R
 import com.lkrh.storescontrol.bean.ConfirmBean
+import com.lkrh.storescontrol.bean.ConfirmlistBean
 import com.lkrh.storescontrol.bean.LoginBean
+import com.lkrh.storescontrol.bean.ScanCheckBean
 import com.lkrh.storescontrol.databinding.ItemPackingInspetionBinding
 import com.lkrh.storescontrol.url.Request
 import com.lkrh.storescontrol.url.Untils
@@ -32,15 +33,21 @@ import retrofit2.Response
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ScanCheckActivity :BaseActivity() {
-    internal var stringList:LinkedList<String>?=null
+    internal var stringList:ArrayList<String>?=null
+    internal var scanCheckBeanList:ArrayList<ScanCheckBean>?=ArrayList()
+    internal var scanList:ArrayList<String>?= ArrayList()
     private var functionAdapter: FunctionAdapter? = null
     internal var menuBean: LoginBean.Menu?=null
+    var confirmlistBean: ConfirmlistBean? = null
+
+    var tag = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan_check)
-        stringList= LinkedList()
+
         menuBean = intent.getParcelableExtra("menubean")
         Untils.initTitle(menuBean!!.menushowname, this)
         rv_list.setLayoutManager(LinearLayoutManager(this))
@@ -51,7 +58,7 @@ class ScanCheckActivity :BaseActivity() {
                check()
 
             }
-            true
+            false
         })
         b_search.setOnClickListener(View.OnClickListener {
             check()
@@ -59,7 +66,41 @@ class ScanCheckActivity :BaseActivity() {
         iv_code.setOnClickListener(View.OnClickListener {
             openScan()
         })
-        b_submit.setOnClickListener(View.OnClickListener { putData() })
+        b_submit.setOnClickListener(View.OnClickListener {
+
+            putData()
+        })
+
+        confirmlistBean=intent.getParcelableExtra("ConfirmlistBean")
+
+
+        var s = confirmlistBean!!.field5value
+        if (s.startsWith("[")) {
+            s = s.substring(1)
+        }
+        if (s.endsWith("]")) {
+            s = s.substring(0, s.length - 1)
+        }
+        val array = s.split(",").toTypedArray()
+        stringList= ArrayList()
+        for (temp in array) {
+            stringList!!.add(temp)
+        }
+
+
+        for (i in stringList!!.indices) {
+            val scanCheckBean = ScanCheckBean("", false)
+            scanCheckBean.code = stringList!![i]
+            scanCheckBean.chccked = false
+            scanCheckBeanList!!.add(scanCheckBean)
+
+        }
+
+
+
+        functionAdapter=FunctionAdapter(scanCheckBeanList!!)
+        rv_list.adapter=functionAdapter
+        functionAdapter!!.notifyDataSetChanged()
 
     }
     private fun openScan() {
@@ -77,26 +118,56 @@ class ScanCheckActivity :BaseActivity() {
 
     private  fun  check(){
 
-        if(et_code.text.length!=21){
-            Toast.makeText(this, "该条码长度错误("+et_code.text.length+"/21)", Toast.LENGTH_LONG).show()
-
-        }else if(stringList!!.contains(et_code.text.toString())){
+        if(scanList!!.contains(et_code.text.toString())){
             Toast.makeText(this, "条码重复", Toast.LENGTH_LONG).show()
-        }else{
-            stringList!!.add(et_code.text.toString())
-            functionAdapter=FunctionAdapter(stringList!!)
-            rv_list.setAdapter(functionAdapter)
-            tv_total.text="总计："+stringList!!.size
 
+            return
+        }else{
+            if(confirmlistBean!!.field3value=="顺序装箱"){
+
+                  if(stringList!!.get(tag)==et_code.text.toString()){
+                      scanList!!.add(stringList!!.get(tag))
+                      scanCheckBeanList!![tag].chccked=true
+                      if(tag<stringList!!.size-1){
+                          tag=tag+1;
+                      }
+                  }else{
+                      Toast.makeText(this, "条码错误", Toast.LENGTH_LONG).show()
+                  }
+
+            }else{
+                if(stringList!!.contains(et_code.text.toString())){
+                    scanList!!.add(et_code.text.toString())
+
+                    for (i in scanCheckBeanList!!.indices) {
+                       if(scanCheckBeanList!![i].code.contains(et_code.text.toString())){
+                           scanCheckBeanList!![i].chccked=true
+                       }
+
+                    }
+
+                }else{
+                    Toast.makeText(this, "条码错误", Toast.LENGTH_LONG).show()
+
+                }
+            }
+
+            tv_total.text="总计："+scanList!!.size
 
         }
         et_code.setText("")
         et_code.requestFocus()
 
+        functionAdapter=FunctionAdapter(scanCheckBeanList!!)
+        rv_list.adapter=functionAdapter
+        functionAdapter!!.notifyDataSetChanged()
+
+
+
 
 
     }
-    inner class FunctionAdapter(private val mDatas:LinkedList<String>) : RecyclerView.Adapter<FunctionAdapter.VH>() {
+    inner class FunctionAdapter(private val mDatas:ArrayList<ScanCheckBean>) : RecyclerView.Adapter<FunctionAdapter.VH>() {
 
 
 
@@ -107,7 +178,11 @@ class ScanCheckActivity :BaseActivity() {
 
         override fun onBindViewHolder(vh: FunctionAdapter.VH, i: Int) {
             val binding = DataBindingUtil.getBinding<ItemPackingInspetionBinding>(vh.itemView)
-            binding!!.tvCode.text = mDatas!![i]
+            if(mDatas!![i].chccked){
+                binding!!.tvCode.setTextColor(resources.getColor(R.color.blue))
+
+            }
+            binding!!.tvCode.text = mDatas!![i].code
 
         }
 
@@ -138,6 +213,12 @@ class ScanCheckActivity :BaseActivity() {
 
     }
     private fun putData() {
+        if(confirmlistBean!!.field3value=="顺序装箱"){
+            if(scanList!!.size!=stringList!!.size){
+                Toast.makeText(this@ScanCheckActivity, "存在未扫描条码", Toast.LENGTH_LONG).show()
+                return
+            }
+        }
         dialog.show()
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS")// HH:mm:ss
         //获取当前时间
@@ -153,12 +234,12 @@ class ScanCheckActivity :BaseActivity() {
             jsonObject.put("menucode", menuBean!!.getMenucode())
             jsonObject.put("layout", "1")
             jsonObject.put("button", b_submit.getText().toString())
-            jsonObject.put("condition", "")
+            jsonObject.put("condition", confirmlistBean!!.field1value)
 
             val jsonArray = JSONArray()
-            for (i in stringList!!.indices) {
+            for (i in scanList!!.indices) {
                 val `object` = JSONObject()
-                `object`.put("barcode", stringList!!.get(i))
+                `object`.put("barcode", scanList!!.get(i))
                 jsonArray.put(`object`)
             }
             jsonObject.put("formdata",jsonArray.toString())

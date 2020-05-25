@@ -162,24 +162,20 @@ public class PutListActivity extends BaseActivity {
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(getIntent().getStringExtra("menuname").equals("货位调整") && company.equals("林肯SKF")) {
+                if(binding.rlUpdate.getVisibility()==View.VISIBLE){
                     if(binding.etUpdatecwhcode.getText().toString().isEmpty()){
                         Toast.makeText(PutListActivity.this,"请扫描调入仓位",Toast.LENGTH_LONG).show();
                         return;
-                    }else {
-                        putData();
                     }
-
-                }else if(getIntent().getStringExtra("menuname").equals("销售出库") && company.equals("浦东瀚氏")) {
-
-                  if(binding.etPlate.getText().toString().isEmpty()){
-                      Toast.makeText(PutListActivity.this,"请扫描车码",Toast.LENGTH_LONG).show();
-                      return;
-                  }else {
-                      putData();
-                  }
-                }else {
-                    if(getIntent().getStringExtra("menuname").equals("材料出库") && company.equals("新傲科技")) {
+                }
+                if(binding.lPlate.getVisibility()==View.VISIBLE){
+                    if(binding.etPlate.getText().toString().isEmpty()){
+                        Toast.makeText(PutListActivity.this,"请扫描车码",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+                if(company.equals("新傲科技")){
+                    if(!getIntent().getStringExtra("menuname").equals("采购入库")){
                         SharedPreferences detailPreferences = getSharedPreferences(menuBean.getMenucode() + "Detail", 0);
                         List<ConfirmlistBean> detailsList = Untils.getDetails(detailPreferences);
                         for (int i = 0; i <detailsList.size() ; i++) {
@@ -190,9 +186,9 @@ public class PutListActivity extends BaseActivity {
                             }
                         }
                     }
+                }
 
                     putData();
-                }
 
 
             }
@@ -295,7 +291,12 @@ public class PutListActivity extends BaseActivity {
             jsonObject.put("usercode",usercode);
             jsonObject.put("acccode",acccode);
             jsonObject.put("menucode",menuBean.getMenucode());
-            jsonObject.put("layout","1");
+            if(company.equals("新傲科技")){
+                jsonObject.put("layout",passworld);
+            }else {
+                jsonObject.put("layout","1");
+            }
+
             jsonObject.put("button",binding.etPlate.getText().toString());
             jsonObject.put("condition",getTime());
             jsonObject.put("formdata",new Gson().toJson(arrivalHeadBeans));
@@ -397,12 +398,7 @@ public class PutListActivity extends BaseActivity {
                             List<String> listcode = new ArrayList<>(Arrays.asList(stringscandata));
 
                             listcode.remove(i);
-//                            for (int j = 0; j <listcode.size() ; j++) {
-//
-//                                if(listcode.get(j).contains(arrivalHeadBeans.get(i).getIrowno())){
-//                                    listcode.remove(j);
-//                                }
-//                            }
+
 
 
                             if(company.equals("新傲科技")) {
@@ -410,9 +406,10 @@ public class PutListActivity extends BaseActivity {
                                 List<ConfirmlistBean> detailsList = Untils.getDetails(detailPreferences);
                                 for (int j = 0; j <detailsList.size() ; j++) {
 
-                                    if(arrivalHeadBeans.get(i).getcInvCode().equals(detailsList.get(j).getField4value())){
+                                    if(arrivalHeadBeans.get(i).getIrowno().equals(detailsList.get(j).getField10value())){
 
                                         Untils.updateIquantity(detailsList.get(j),-Integer.parseInt(arrivalHeadBeans.get(i).getIquantity()));
+
                                     }
                                 }
 
