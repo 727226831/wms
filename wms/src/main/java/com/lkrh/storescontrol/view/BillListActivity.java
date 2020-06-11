@@ -26,13 +26,11 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
-import com.lkrh.storescontrol.bean.GuideBean;
 import com.lkrh.storescontrol.bean.LoginBean;
-import com.lkrh.storescontrol.bean.ScanCheckBean;
 import com.lkrh.storescontrol.databinding.ActivityBillListBinding;
 import com.lkrh.storescontrol.databinding.ItemCodelistBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -310,6 +308,7 @@ public class BillListActivity extends BaseActivity {
             binding.rlLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Intent intent=null;
                     if(company.equals("新傲科技") && menuBean.getMenushowname().equals("扫码检查")){
                         intent=new Intent(BillListActivity.this, ScanCheckActivity.class);

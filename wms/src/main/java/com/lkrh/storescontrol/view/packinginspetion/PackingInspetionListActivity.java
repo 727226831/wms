@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.databinding.ItemPackingInspetionBinding;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.view.BaseActivity;
 
 import java.util.Arrays;

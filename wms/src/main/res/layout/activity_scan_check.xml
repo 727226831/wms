@@ -55,12 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_margin="@dimen/layout_margin"
-            android:id="@+id/rv_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
         <RelativeLayout
+            android:id="@+id/l_bottom"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -86,6 +82,13 @@
                 android:layout_margin="10dp"
                 />
         </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+             android:layout_above="@+id/l_bottom"
+            android:layout_margin="@dimen/layout_margin"
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </RelativeLayout>
 
 

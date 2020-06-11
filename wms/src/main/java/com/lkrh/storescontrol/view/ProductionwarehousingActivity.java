@@ -1,6 +1,7 @@
 package com.lkrh.storescontrol.view;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +12,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,14 +32,11 @@ import com.lkrh.storescontrol.bean.ConfirmBean;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.bean.ProductBean;
-import com.lkrh.storescontrol.bean.ScanCheckBean;
 import com.lkrh.storescontrol.bean.WarehouseBean;
 import com.lkrh.storescontrol.databinding.ActivityProductionwarehousingBinding;
 import com.lkrh.storescontrol.untils.iToast;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
-import com.lkrh.storescontrol.view.inspection.Inspectionlist2Activity;
-import com.squareup.picasso.Picasso;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +44,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -75,15 +71,16 @@ public class ProductionwarehousingActivity extends BaseActivity {
     LoginBean.Menu menuBean;
     Boolean isVerification=false;
     List<ConfirmlistBean> detailsList;
+    int defalultIquantity=25;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this, R.layout.activity_productionwarehousing);
-
-        Untils.initTitle(getIntent().getStringExtra("menuname"),this);
-        sharedPreferences=getSharedPreferences("sp",MODE_PRIVATE);
         menuBean=getIntent().getParcelableExtra("menubean");
+        Untils.initTitle(menuBean.getMenushowname(),this);
+        sharedPreferences=getSharedPreferences("sp",MODE_PRIVATE);
+      
         detailPreferences=getSharedPreferences(menuBean.getMenucode() + "Detail" ,0);
         detailsList=Untils.getDetails(detailPreferences);
         if(getIntent().getIntExtra("position",-1)!=-1){
@@ -91,7 +88,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
         }
 
         if(menuBean.getMenucode().equals("SCRK")
-           ||getIntent().getStringExtra("menuname").equals("其他入库")
+           ||menuBean.getMenushowname().equals("其他入库")
                 ||menuBean.getMenucode().equals("HZCLCK")
         ){
             binding.lCvenabbname.setVisibility(View.GONE);
@@ -105,14 +102,14 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.tvCinvcode.setVisibility(View.GONE);
                 useEditIquantity();
                 arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity("25");
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
                 arrivalHeadBean.setCcode(confirmlistBean.getField9value());
                 arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
                 arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
                 arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
                 binding.setBean(arrivalHeadBean);
             }
-        }else if(getIntent().getStringExtra("menuname").equals("其他出库")){
+        }else if(menuBean.getMenushowname().equals("其他出库")){
             binding.lCvenabbname.setVisibility(View.GONE);
               useEditIquantity();
             if(company.equals("新傲科技")){
@@ -125,7 +122,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.rlCwhcode.setVisibility(View.GONE);
 
                 arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity("25");
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
 
                 arrivalHeadBean.setCcode(confirmlistBean.getField9value());
                 arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
@@ -134,7 +131,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
                 binding.setBean(arrivalHeadBean);
             }
-        }else if(getIntent().getStringExtra("menuname").equals("材料出库")){
+        }else if(menuBean.getMenushowname().equals("材料出库")){
             binding.lCvenabbname.setVisibility(View.GONE);
 
             if(company.equals("林肯SKF")) {
@@ -151,7 +148,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                     useEditIquantity();
 
                 arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity("25");
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
 
                 arrivalHeadBean.setCcode(confirmlistBean.getField9value());
                 arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
@@ -165,7 +162,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.tvTotal.setVisibility(View.GONE);
             }
 
-        }else if(getIntent().getStringExtra("menuname").equals("销售发货")){
+        }else if(menuBean.getMenushowname().equals("销售发货")){
             binding.lCvenabbname.setVisibility(View.GONE);
             binding.rlUpdate.setVisibility(View.GONE);
            useEditIquantity();
@@ -180,10 +177,10 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.tvTotal.setVisibility(View.GONE);
             }
 
-        }else if(getIntent().getStringExtra("menuname").equals("委外发料")){
+        }else if(menuBean.getMenushowname().equals("委外发料")){
             binding.lCvenabbname.setVisibility(View.GONE);
             binding.rlUpdate.setVisibility(View.GONE);
-        }else  if(getIntent().getStringExtra("menuname").equals("采购入库")){
+        }else  if(menuBean.getMenushowname().equals("采购入库")){
             if(company.equals("瑞格菲克斯")){
               useEditIquantity();
             }
@@ -200,7 +197,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                   useEditIquantity();
 
                 arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity("25");
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
 
                 arrivalHeadBean.setCcode(confirmlistBean.getField9value());
 
@@ -209,16 +206,16 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.setBean(arrivalHeadBean);
             }
 
-        }else  if(getIntent().getStringExtra("menuname").equals("到货入库")){
+        }else  if(menuBean.getMenushowname().equals("到货入库")){
 
-        }else  if(getIntent().getStringExtra("menuname").equals("到货确认")){
+        }else  if(menuBean.getMenushowname().equals("到货确认")){
             binding.rlUpdate.setVisibility(View.GONE);
             binding.rlCwhcode.setVisibility(View.GONE);
-        }else  if(getIntent().getStringExtra("menuname").equals("产成品入库")){
+        }else  if(menuBean.getMenushowname().equals("产成品入库")){
             binding.lCvenabbname.setVisibility(View.GONE);
 
             binding.rlUpdate.setVisibility(View.GONE);
-        }else  if(getIntent().getStringExtra("menuname").equals("货位调整")){
+        }else  if(menuBean.getMenushowname().equals("货位调整")){
             binding.lCvenabbname.setVisibility(View.GONE);
 
             if(company.equals("浦东瀚氏")) {
@@ -240,23 +237,23 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 binding.lBoxcode.setVisibility(View.VISIBLE);
 
                 arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity("25");
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
                 binding.setBean(arrivalHeadBean);
             }
 
-        }else  if(getIntent().getStringExtra("menuname").equals("采购到货")){
+        }else  if(menuBean.getMenushowname().equals("采购到货")){
             binding.rlCdefine10.setVisibility(View.VISIBLE);
             binding.rlUpdate.setVisibility(View.GONE);
             binding.tvCcodekey.setText("采购订单号：");
             binding.rlCwhcode.setVisibility(View.GONE);
-        }else  if(getIntent().getStringExtra("menuname").equals("存货盘点")){
+        }else  if(menuBean.getMenushowname().equals("存货盘点")){
            useEditIquantity();
-        } else  if(getIntent().getStringExtra("menuname").equals("补料发料")){
+        } else  if(menuBean.getMenushowname().equals("补料发料")){
           useEditIquantity();
-        } else  if(getIntent().getStringExtra("menuname").equals("采购退料")){
+        } else  if(menuBean.getMenushowname().equals("采购退料")){
            useEditIquantity();
             binding.lCpocode.setVisibility(View.VISIBLE);
-        }else  if(getIntent().getStringExtra("menuname").equals("库存调拨")){
+        }else  if(menuBean.getMenushowname().equals("库存调拨")){
             binding.lCvenabbname.setVisibility(View.GONE);
             binding.rlUpdate.setVisibility(View.VISIBLE);
             useEditIquantity();
@@ -265,7 +262,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                     binding.rlMemo.setVisibility(View.VISIBLE);
 
             }
-        }else if(getIntent().getStringExtra("menuname").equals("销售出库")){
+        }else if(menuBean.getMenushowname().equals("销售出库")){
             binding.lCvenabbname.setVisibility(View.GONE);
 
 
@@ -284,7 +281,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
 
                 arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity("25");
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
 
                 arrivalHeadBean.setCcode(confirmlistBean.getField9value());
                 arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
@@ -299,7 +296,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
 
 
-        }else if(getIntent().getStringExtra("menuname").equals("备货调拨")){
+        }else if(menuBean.getMenushowname().equals("备货调拨")){
 
             binding.rlUpdate.setVisibility(View.VISIBLE);
             useEditIquantity();
@@ -310,7 +307,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
             }
 
-        }else if(getIntent().getStringExtra("menuname").equals("发货出库")){
+        }else if(menuBean.getMenushowname().equals("发货出库")){
 
             binding.tvBatch.setText("客户箱码：");
             binding.lYhCode.setVisibility(View.VISIBLE);
@@ -375,6 +372,24 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
             }
         });
+        binding.etBoxcode.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent event) {
+                if(i == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
+                            if(!detailsList.isEmpty()){
+                                if(!detailsList.get(0).getField5value().isEmpty()){
+                                    arrivalHeadBean.setIquantity(binding.etIquantity.getText().toString());
+                                    checkBoxCode(binding.etBoxcode.getText().toString());
+                                }
+                            }
+                }
+                if(event.getAction()==KeyEvent.ACTION_UP){
+                    return  true;
+                }else {
+                    return false;
+                }
+            }
+        });
 
 
 
@@ -385,7 +400,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
         binding.etDock.setOnKeyListener(onKeyListener);
         binding.etTray.setOnKeyListener(onKeyListener);
         binding.etYhCode.setOnKeyListener(onKeyListener);
-        binding.etBoxcode.setOnKeyListener(onKeyListener);
+
 
 
 
@@ -502,6 +517,10 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
 
     private void checkBoxCode(String code) {
+        Log.i("sc",code);
+        code=code.trim();
+        Log.i("sc",code);
+        arrivalHeadBean.setIquantity(binding.etIquantity.getText().toString());
         if(company.equals("新傲科技") && menuBean.getMenushowname().equals("货位调整")){
             if(code.toLowerCase().contains("PO")){
                 Toast.makeText(ProductionwarehousingActivity.this, "LOT条码类型错误！", Toast.LENGTH_LONG).show();
@@ -518,12 +537,13 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 Toast.makeText(ProductionwarehousingActivity.this, "调入仓库不能为空", Toast.LENGTH_LONG).show();
                 return;
             }else {
-                if(!cposition.equals(inposition) && cwhcode.equals(inwhcode)){
-                    arrivalHeadBean.setInposition(inposition);
-                    arrivalHeadBean.setInwhcode(inwhcode);
-                }else {
+
+                if(cposition.equals(inposition) && cwhcode.equals(inwhcode)){
                     Toast.makeText(ProductionwarehousingActivity.this, "货位不能相同", Toast.LENGTH_LONG).show();
                     return;
+                }else {
+                    arrivalHeadBean.setInposition(inposition);
+                    arrivalHeadBean.setInwhcode(inwhcode);
                 }
 
             }
@@ -535,7 +555,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 Toast.makeText(ProductionwarehousingActivity.this, "仓库不能为空", Toast.LENGTH_LONG).show();
                 return;
             }else {
-                if(getIntent().getStringExtra("menuname").equals("材料出库")){
+                if(menuBean.getMenushowname().equals("材料出库")){
                     if(cposition.equals(detailsList.get(0).getField2value())){
                         Toast.makeText(ProductionwarehousingActivity.this, "仓位不正确", Toast.LENGTH_LONG).show();
                         return;
@@ -567,20 +587,18 @@ public class ProductionwarehousingActivity extends BaseActivity {
             for (int i = 0; i < detailsList.size(); i++) {
 
                 if (detailsList.get(i).getField5value().equals(code) && !detailsList.get(i).getField8value().equals("0")) {
-                    binding.tvNumber.setText(detailsList.get(i).getField6value());
-                    if (company.equals("新傲科技") && menuBean.getMenushowname().equals("采购入库")) {
-                        arrivalHeadBean.setIquantity(detailsList.get(i).getField6value());
-                    }
+
                     arrivalHeadBean.setIrowno(detailsList.get(i).getField10value());
                     arrivalHeadBean.setcInvCode(detailsList.get(i).getField4value());
                     arrivalHeadBean.setCbatch(detailsList.get(i).getField5value());
                     arrivalHeadBean.setcInvName(detailsList.get(i).getField3value());
-                    arrivalHeadBean.setIquantity(detailsList.get(i).getField8value());
+
                     binding.setBean(arrivalHeadBean);
                     update(detailsList.get(i));
                     isVerification = true;
-
-
+                    if (company.equals("新傲科技") && menuBean.getMenushowname().equals("材料出库")) {
+                        break;
+                    }
                 }
             }
             if (!isVerification) {
@@ -655,11 +673,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
                 }
             }
-            if(event.getAction()==KeyEvent.ACTION_UP){
-                return  true;
-            }else {
+
                 return false;
-            }
+
 
         }
     };
@@ -673,7 +689,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
             jsonObject.put("acccode",acccode);
             jsonObject.put("menucode",menuBean.getMenucode());
             jsonObject.put("irowno","");
-            if(getIntent().getStringExtra("menuname").equals("委外发料")){
+            if(menuBean.getMenushowname().equals("委外发料")){
                 jsonObject.put("layout","3");
             }else {
                 jsonObject.put("layout","1");
@@ -687,9 +703,14 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
               default:
                   jsonObject.put("barcode",code);
-                  if(getIntent().getStringExtra("menuname").equals("销售出库") && company.equals("浦东瀚氏")){
-
+                  if(menuBean.getMenushowname().equals("销售出库") && company.equals("浦东瀚氏")){
                       jsonObject.put("ccode",confirmlistBean.getField1value());
+                  }else if(company.equals("新傲科技")){
+                      if(confirmlistBean!=null){
+                          jsonObject.put("ccode",confirmlistBean.getField9value());
+                      }else {
+                          jsonObject.put("ccode","");
+                      }
                   }else {
                       jsonObject.put("ccode","");
                   }
@@ -767,9 +788,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
 
 
-                           if(getIntent().getStringExtra("menuname").equals("委外发料")
-                                   || getIntent().getStringExtra("menuname").equals("销售发货")
-                                   || getIntent().getStringExtra("menuname").equals("材料出库")
+                           if(menuBean.getMenushowname().equals("委外发料")
+                                   || menuBean.getMenushowname().equals("销售发货")
+                                   || menuBean.getMenushowname().equals("材料出库")
                            ) {
 
                                arrivalHeadBean.setIrowno(confirmlistBean.getField10value());
@@ -934,7 +955,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
                 case R.id.b_search:
                     intent=new Intent(ProductionwarehousingActivity.this,PutListActivity.class);
-                    intent.putExtra("menuname",getIntent().getStringExtra("menuname"));
+                    intent.putExtra("menuname",menuBean.getMenushowname());
                     intent.putExtra("menubean",menuBean);
 
                     if(binding.rlCdefine10.getVisibility()==View.VISIBLE){
@@ -958,33 +979,48 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
                     break;
                 case R.id.b_adjustment:
-                    arrivalHeadBean=new ArrivalHeadBean();
-                    if(binding.rlUpdate.getVisibility()==View.VISIBLE ){
-                        if(binding.etUpdatecwhcode.getText().toString().isEmpty()){
-                            Toast.makeText(ProductionwarehousingActivity.this, "调入仓库不能为空", Toast.LENGTH_LONG).show();
-                            return;
-                        }else {
-                            if(!cposition.equals(inposition) && cwhcode.equals(inwhcode)){
-                                arrivalHeadBean.setInposition(inposition);
-                                arrivalHeadBean.setInwhcode(inwhcode);
-                            }else {
-                                Toast.makeText(ProductionwarehousingActivity.this, "货位不能相同", Toast.LENGTH_LONG).show();
-                                return;
+                    AlertDialog.Builder builder=new AlertDialog.Builder(ProductionwarehousingActivity.this);
+                    builder.setTitle("提示").setMessage("确认要执行整托调整操作吗？").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            arrivalHeadBean=new ArrivalHeadBean();
+                            if(binding.rlUpdate.getVisibility()==View.VISIBLE ){
+                                if(binding.etUpdatecwhcode.getText().toString().isEmpty()){
+                                    Toast.makeText(ProductionwarehousingActivity.this, "调入仓库不能为空", Toast.LENGTH_LONG).show();
+                                    return;
+                                }else {
+                                    if(cposition.equals(inposition) && cwhcode.equals(inwhcode)){
+                                        Toast.makeText(ProductionwarehousingActivity.this, "货位不能相同", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }else {
+                                        arrivalHeadBean.setInposition(inposition);
+                                        arrivalHeadBean.setInwhcode(inwhcode);
+                                    }
+                                }
                             }
-                        }
-                    }
 
-                    if(binding.rlCwhcode.getVisibility()==View.VISIBLE ){
-                        if(binding.etCwhcode.getText().toString().isEmpty()){
-                            Toast.makeText(ProductionwarehousingActivity.this, "仓库不能为空", Toast.LENGTH_LONG).show();
-                            return;
-                        }else {
-                            arrivalHeadBean.setCwhcode(cwhcode);
-                            arrivalHeadBean.setCposition(cposition);
-                        }
+                            if(binding.rlCwhcode.getVisibility()==View.VISIBLE ){
+                                if(binding.etCwhcode.getText().toString().isEmpty()){
+                                    Toast.makeText(ProductionwarehousingActivity.this, "仓库不能为空", Toast.LENGTH_LONG).show();
+                                    return;
+                                }else {
+                                    arrivalHeadBean.setCwhcode(cwhcode);
+                                    arrivalHeadBean.setCposition(cposition);
+                                }
 
-                    }
-                    updateData("整托调整");
+                            }
+                            updateData("整托调整");
+
+
+                        }
+                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).create().show();
+
                     break;
 
 
@@ -1083,7 +1119,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
             arrivalHeadBean.setTray(binding.etTray.getText().toString());
         }
         if(binding.rlTransport.getVisibility()==View.VISIBLE){
-            if (getIntent().getStringExtra("menuname").equals("销售发货")) {
+            if (menuBean.getMenushowname().equals("销售发货")) {
                 if (binding.etTransport.getText().toString().isEmpty()) {
                     Toast.makeText(ProductionwarehousingActivity.this, "承运商不能为空", Toast.LENGTH_LONG).show();
                     return;
@@ -1150,7 +1186,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
             changeIquantity(1);
         }
 
-            if(getIntent().getStringExtra("menuname").equals("补料发料")) {
+            if(menuBean.getMenushowname().equals("补料发料")) {
                 if (!confirmlistBean.getField5value().equals(stringScan)) {
                     Toast.makeText(ProductionwarehousingActivity.this, "条码不一致！", Toast.LENGTH_LONG).show();
                     return;
@@ -1167,7 +1203,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
             if(getIntent().getStringExtra("category")!=null) {
                 arrivalHeadBean.setCategory(getIntent().getStringExtra("category"));
             }
-            if(getIntent().getStringExtra("menuname").equals("采购退料")) {
+            if(menuBean.getMenushowname().equals("采购退料")) {
                 if(binding.etCpocode.getText().toString().isEmpty()){
                     Toast.makeText(ProductionwarehousingActivity.this, "采购单号不能为空", Toast.LENGTH_LONG).show();
                     return;
@@ -1177,9 +1213,9 @@ public class ProductionwarehousingActivity extends BaseActivity {
             }
 
 
-            if(company.equals("瑞格菲克斯") && getIntent().getStringExtra("menuname").equals("销售发货")
-                    ||getIntent().getStringExtra("menuname").equals("材料出库")
-                    ||getIntent().getStringExtra("menuname").equals("备货调拨")
+            if(company.equals("瑞格菲克斯") && menuBean.getMenushowname().equals("销售发货")
+                    ||menuBean.getMenushowname().equals("材料出库")
+                    ||menuBean.getMenushowname().equals("备货调拨")
             ){
 
                 for (int i = 0; i <detailsList.size() ; i++) {
@@ -1208,7 +1244,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
     private void update(ConfirmlistBean bean) {
         ConfirmlistBean confirmlistBean=bean;
-        if(getIntent().getStringExtra("menuname").equals("备货调拨")){
+        if(menuBean.getMenushowname().equals("备货调拨")){
             updateList(confirmlistBean);
             if(Integer.parseInt(confirmlistBean.getField8value())<1){
                 Toast.makeText(ProductionwarehousingActivity.this, "当前货物已达到需求数量！", Toast.LENGTH_LONG).show();
@@ -1301,7 +1337,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
         binding.tvTotal.setText("总计："+arrivalHeadBeans.size()+"条");
         //update sharedPreferences->putlist item
 
-        if(getIntent().getStringExtra("menuname").equals("销售发货")){
+        if(menuBean.getMenushowname().equals("销售发货")){
             arrivalHeadBean.setCustomer(binding.etCustomer.getText().toString());
 
         }
@@ -1323,18 +1359,20 @@ public class ProductionwarehousingActivity extends BaseActivity {
 
         //update sharedPreferences->scan item
         List<String> listscan=new ArrayList<>();
-        if(stringscandata.equals("")){
-            listscan.add(stringScan);
-        }else {
-            listscan=new ArrayList<>(Arrays.asList(stringscandata));
-            listscan.add(stringScan);
+
+        if(!stringscandata.isEmpty()){
+            listscan=Untils.stingsToList(stringscandata);
         }
+
+        listscan.add(stringScan);
+
+
 
 
         getCount();
 
         sharedPreferences.edit().putString(menuBean.getMenucode()+"Scan",listscan.toString()).commit();
-       // initData();
+
 
     }
 

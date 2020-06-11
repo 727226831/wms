@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +21,7 @@ import com.google.zxing.integration.android.IntentResult;
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.bean.StockcheckBean;
 import com.lkrh.storescontrol.databinding.ActivityStockcheckBinding;
 import com.google.gson.Gson;

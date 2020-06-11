@@ -13,15 +13,13 @@ import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.ConfirmBean;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.url.iUrl;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

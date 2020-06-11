@@ -10,8 +10,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.provider.MediaStore;
 
 import android.os.Bundle;
@@ -19,10 +17,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -35,15 +30,11 @@ import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.lkrh.storescontrol.R;
-import com.lkrh.storescontrol.bean.ArrivalHeadBean;
 import com.lkrh.storescontrol.bean.ConfirmBean;
-import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
-import com.lkrh.storescontrol.bean.ProductBean;
-import com.lkrh.storescontrol.bean.WarehouseBean;
 import com.lkrh.storescontrol.databinding.ActivityLogisticsDistributionBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -53,7 +44,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;

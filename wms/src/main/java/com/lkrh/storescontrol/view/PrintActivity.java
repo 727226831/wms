@@ -18,7 +18,7 @@ import android.widget.Toast;
 import androidx.databinding.DataBindingUtil;
 
 import com.lkrh.storescontrol.R;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.bean.ArrivalHeadBean;
 import com.lkrh.storescontrol.databinding.ActivityPrintBinding;
 import com.google.zxing.BarcodeFormat;

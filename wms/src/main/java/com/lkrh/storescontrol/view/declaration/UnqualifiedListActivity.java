@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.bean.UnqualifiedBean;
 import com.lkrh.storescontrol.databinding.ItemUnqualifiedBinding;
 import com.lkrh.storescontrol.view.BaseActivity;

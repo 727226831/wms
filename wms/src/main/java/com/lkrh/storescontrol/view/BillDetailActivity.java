@@ -11,7 +11,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,15 +30,12 @@ import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.ConfirmBean;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
-import com.lkrh.storescontrol.bean.ProductBean;
 import com.lkrh.storescontrol.bean.WarehouseBean;
 import com.lkrh.storescontrol.databinding.ActivityBillDetailBinding;
 
-import com.lkrh.storescontrol.databinding.ItemCodelistBinding;
 import com.lkrh.storescontrol.databinding.ItemDetailsBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
-import com.lkrh.storescontrol.view.test.TestActivity;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -299,12 +295,7 @@ public class BillDetailActivity extends BaseActivity {
                           if (Integer.parseInt(t1.getField8value()) < Integer.parseInt(t2.getField8value())) {
                               return 1;
                           } else if (Integer.parseInt(t1.getField8value()) == Integer.parseInt(t2.getField8value())) {
-                              if (t1.getField2value().compareTo(t2.getField2value()) == 1) {
-                                  return 1;
-                              } else {
-                                  return t1.getField1value().compareTo(t2.getField1value());
-                              }
-
+                              return t1.getField1value().compareTo(t2.getField1value());
                           } else {
                               return -1;
                           }
@@ -453,16 +444,11 @@ public class BillDetailActivity extends BaseActivity {
                                         if (Double.parseDouble(t1.getField8value()) < Double.parseDouble(t2.getField8value())) {
                                             return 1;
                                         } else if (Double.parseDouble(t1.getField8value()) == Double.parseDouble(t2.getField8value())) {
-
-                                            if (t1.getField2value().compareTo(t2.getField2value()) == 1) {
-                                                return 1;
-                                            } else {
-                                                return t1.getField1value().compareTo(t2.getField1value());
-                                            }
-
+                                            return t1.getField1value().compareTo(t2.getField1value());
                                         } else {
                                             return -1;
                                         }
+
 
                                     }
                                 });
@@ -527,7 +513,6 @@ public class BillDetailActivity extends BaseActivity {
                     }else {
                         Intent intent = new Intent(BillDetailActivity.this, ProductionwarehousingActivity.class);
                         intent.putExtra("menubean", menuBean);
-                        intent.putExtra("menuname", menuBean.getMenushowname());
                         intent.putExtra("position",i);
                         intent.putExtra("cvenabbname",getIntent().getStringExtra("cvenabbname"));
                         startActivity(intent);

@@ -17,7 +17,7 @@ import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.bean.PackingInspetionBean;
 import com.lkrh.storescontrol.databinding.ActivityPackingInspetionBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.url.iUrl;
 import com.lkrh.storescontrol.view.BaseActivity;
 import com.lkrh.storescontrol.view.ScanActivity;

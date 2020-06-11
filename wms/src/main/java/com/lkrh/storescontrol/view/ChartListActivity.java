@@ -24,9 +24,8 @@ import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.databinding.ItemCkkbBinding;
-import com.lkrh.storescontrol.databinding.ItemCodelistBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -16,7 +16,7 @@ import com.lkrh.storescontrol.bean.LoginBean;
 
 import com.lkrh.storescontrol.databinding.ActivityStockAllocationBinding;
 
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

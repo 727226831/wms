@@ -19,14 +19,12 @@ import com.lkrh.storescontrol.bean.GuideBean
 import com.lkrh.storescontrol.bean.LoginBean
 import com.lkrh.storescontrol.databinding.ItemHwydBinding
 import com.lkrh.storescontrol.url.Request
-import com.lkrh.storescontrol.url.Untils
-import kotlinx.android.synthetic.main.activity_chart_list.*
+import com.lkrh.storescontrol.untils.Untils
 
 import org.json.JSONException
 import org.json.JSONObject
 
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 

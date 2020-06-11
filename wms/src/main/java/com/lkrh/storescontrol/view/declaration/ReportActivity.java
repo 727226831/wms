@@ -22,7 +22,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.bean.MoInfoBean;
 import com.lkrh.storescontrol.databinding.ActivityReportBinding;
 import com.lkrh.storescontrol.view.BaseActivity;

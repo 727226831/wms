@@ -1,6 +1,5 @@
 package com.lkrh.storescontrol.view.inspection;
 
-import android.content.Context;
 import android.content.DialogInterface;
 
 import android.os.Bundle;
@@ -28,9 +27,8 @@ import com.lkrh.storescontrol.bean.ConfirmBean;
 import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.databinding.ItemDhsjBinding;
-import com.lkrh.storescontrol.databinding.ItemInspectionBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 import com.lkrh.storescontrol.view.BaseActivity;
 
 import org.json.JSONException;

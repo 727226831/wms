@@ -13,12 +13,11 @@ import androidx.databinding.DataBindingUtil;
 import com.google.gson.Gson;
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.ConfirmBean;
-import com.lkrh.storescontrol.bean.ConfirmlistBean;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.bean.ProductionOrderBean;
 import com.lkrh.storescontrol.databinding.ActivityProductionOrderBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

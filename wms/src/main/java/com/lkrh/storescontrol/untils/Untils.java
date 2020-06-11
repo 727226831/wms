@@ -1,4 +1,4 @@
-package com.lkrh.storescontrol.url;
+package com.lkrh.storescontrol.untils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -143,5 +143,19 @@ public class Untils {
         }
         return  stringList;
 
+    }
+    public  static ArrayList<String> stingsToList(String s){
+        if(s.startsWith("[")){
+            s = s.substring(1);
+        }
+        if(s.endsWith("]")){
+            s = s.substring(0,s.length()-1);
+        }
+        String[] array = s.split(",");
+        ArrayList<String> list = new ArrayList<String>();
+        for(String temp:array){
+            list.add(temp);
+        }
+        return  list;
     }
 }

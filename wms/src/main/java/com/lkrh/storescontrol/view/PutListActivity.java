@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,29 +40,24 @@ import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.bean.WarehouseBean;
 import com.lkrh.storescontrol.databinding.ActivityPutListBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
-import com.lkrh.storescontrol.url.iUrl;
+import com.lkrh.storescontrol.untils.Untils;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.GenericSignatureFormatError;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class PutListActivity extends BaseActivity {
     RecyclerView recyclerView;
@@ -395,7 +388,7 @@ public class PutListActivity extends BaseActivity {
                             String stringscandata="";
                             Log.i("arrivalHeadBeans",new Gson().toJson(arrivalHeadBeans));
                             stringscandata=sharedPreferences.getString(menuBean.getMenucode()+"Scan","");
-                            List<String> listcode = new ArrayList<>(Arrays.asList(stringscandata));
+                            List<String> listcode = Untils.stingsToList(stringscandata);
 
                             listcode.remove(i);
 
@@ -421,7 +414,7 @@ public class PutListActivity extends BaseActivity {
                             textViewtotal.setText("总计:"+arrivalHeadBeans.size()+"条");
                             //delete sharedPreferences->putlist item
                             String strings= new Gson().toJson(arrivalHeadBeans);
-                            Log.i("list-->",strings);
+
                             sharedPreferences.edit().putString(menuBean.getMenucode()+"List",strings).commit();
                             sharedPreferences.edit().putString(menuBean.getMenucode()+"Scan",listcode.toString()).commit();
 

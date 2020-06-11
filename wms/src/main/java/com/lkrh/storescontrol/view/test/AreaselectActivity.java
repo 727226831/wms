@@ -9,11 +9,10 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.google.gson.Gson;
 import com.lkrh.storescontrol.R;
 import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.databinding.ActivityAreaselectBinding;
-import com.lkrh.storescontrol.url.Untils;
+import com.lkrh.storescontrol.untils.Untils;
 
 public class AreaselectActivity extends AppCompatActivity {
     LoginBean.Menu menuBean;

@@ -29,16 +29,13 @@ import com.lkrh.storescontrol.bean.LoginBean;
 import com.lkrh.storescontrol.databinding.ActivityClaimMaterialBinding;
 import com.lkrh.storescontrol.databinding.ItemInspectionBinding;
 import com.lkrh.storescontrol.url.Request;
-import com.lkrh.storescontrol.url.Untils;
-import com.lkrh.storescontrol.view.inspection.Inspectionlist2Activity;
+import com.lkrh.storescontrol.untils.Untils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import okhttp3.ResponseBody;

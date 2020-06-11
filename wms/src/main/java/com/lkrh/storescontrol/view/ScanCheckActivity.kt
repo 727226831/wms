@@ -1,7 +1,6 @@
 package com.lkrh.storescontrol.view
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -21,8 +20,8 @@ import com.lkrh.storescontrol.bean.ConfirmlistBean
 import com.lkrh.storescontrol.bean.LoginBean
 import com.lkrh.storescontrol.bean.ScanCheckBean
 import com.lkrh.storescontrol.databinding.ItemPackingInspetionBinding
+import com.lkrh.storescontrol.untils.Untils
 import com.lkrh.storescontrol.url.Request
-import com.lkrh.storescontrol.url.Untils
 import kotlinx.android.synthetic.main.activity_scan_check.*
 import okhttp3.ResponseBody
 import org.json.JSONArray
@@ -58,7 +57,7 @@ class ScanCheckActivity :BaseActivity() {
                check()
 
             }
-            false
+            true
         })
         b_search.setOnClickListener(View.OnClickListener {
             check()
@@ -73,20 +72,8 @@ class ScanCheckActivity :BaseActivity() {
 
         confirmlistBean=intent.getParcelableExtra("ConfirmlistBean")
 
-
-        var s = confirmlistBean!!.field5value
-        if (s.startsWith("[")) {
-            s = s.substring(1)
-        }
-        if (s.endsWith("]")) {
-            s = s.substring(0, s.length - 1)
-        }
-        val array = s.split(",").toTypedArray()
         stringList= ArrayList()
-        for (temp in array) {
-            stringList!!.add(temp)
-        }
-
+        stringList=Untils.stingsToList(confirmlistBean!!.field5value)
 
         for (i in stringList!!.indices) {
             val scanCheckBean = ScanCheckBean("", false)
@@ -180,10 +167,10 @@ class ScanCheckActivity :BaseActivity() {
             val binding = DataBindingUtil.getBinding<ItemPackingInspetionBinding>(vh.itemView)
             if(mDatas!![i].chccked){
                 binding!!.tvCode.setTextColor(resources.getColor(R.color.blue))
-
+            }else{
+                binding!!.tvCode.setTextColor(resources.getColor(R.color.black))
             }
-            binding!!.tvCode.text = mDatas!![i].code
-
+            binding!!.tvCode.text = (i+1).toString()+"/"+mDatas!![i].code
         }
 
         override fun getItemCount(): Int {

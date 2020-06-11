@@ -16,6 +16,7 @@ public class BaseActivity extends AppCompatActivity {
     public static  String company="";
     public  AlertDialog dialog;
     public static  int qualified=0;
+    public  static String currentWarehouse;
 
 
 
