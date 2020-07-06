@@ -77,249 +77,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this, R.layout.activity_productionwarehousing);
-        menuBean=getIntent().getParcelableExtra("menubean");
-        Untils.initTitle(menuBean.getMenushowname(),this);
-        sharedPreferences=getSharedPreferences("sp",MODE_PRIVATE);
-      
-        detailPreferences=getSharedPreferences(menuBean.getMenucode() + "Detail" ,0);
-        detailsList=Untils.getDetails(detailPreferences);
-        if(getIntent().getIntExtra("position",-1)!=-1){
-            confirmlistBean=detailsList.get(getIntent().getIntExtra("position",-1));
-        }
 
-        if(menuBean.getMenucode().equals("SCRK")
-           ||menuBean.getMenushowname().equals("其他入库")
-                ||menuBean.getMenucode().equals("HZCLCK")
-        ){
-            binding.lCvenabbname.setVisibility(View.GONE);
-            useEditIquantity();
-            if(company.equals("浦东瀚氏")) {
-                binding.lTray.setVisibility(View.VISIBLE);
-                binding.ivHelp.setVisibility(View.VISIBLE);
-            }else if(company.equals("新傲科技")){
-                binding.lBatch.setVisibility(View.GONE);
-                binding.lBoxcode.setVisibility(View.VISIBLE);
-                binding.tvCinvcode.setVisibility(View.GONE);
-                useEditIquantity();
-                arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity(defalultIquantity+"");
-                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
-                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
-                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
-                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
-                binding.setBean(arrivalHeadBean);
-            }
-        }else if(menuBean.getMenushowname().equals("其他出库")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-              useEditIquantity();
-            if(company.equals("新傲科技")){
-
-                    useEditIquantity();
-
-                binding.lBatch.setVisibility(View.GONE);
-                binding.lBoxcode.setVisibility(View.VISIBLE);
-                binding.tvCinvcode.setVisibility(View.GONE);
-                binding.rlCwhcode.setVisibility(View.GONE);
-
-                arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity(defalultIquantity+"");
-
-                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
-                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
-                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
-                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
-
-                binding.setBean(arrivalHeadBean);
-            }
-        }else if(menuBean.getMenushowname().equals("材料出库")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-
-            if(company.equals("林肯SKF")) {
-                useEditIquantity();
-                binding.bSearch.setVisibility(View.VISIBLE);
-                binding.tvTotal.setVisibility(View.VISIBLE);
-            }else if(company.equals("新傲科技")){
-                binding.lBatch.setVisibility(View.GONE);
-                binding.lBoxcode.setVisibility(View.VISIBLE);
-                binding.tvCinvcode.setVisibility(View.GONE);
-                binding.rlCwhcode.setVisibility(View.GONE);
-
-
-                    useEditIquantity();
-
-                arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity(defalultIquantity+"");
-
-                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
-                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
-                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
-                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
-
-                binding.setBean(arrivalHeadBean);
-            } else {
-                useEditIquantity();
-                binding.bSearch.setVisibility(View.GONE);
-                binding.tvTotal.setVisibility(View.GONE);
-            }
-
-        }else if(menuBean.getMenushowname().equals("销售发货")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-            binding.rlUpdate.setVisibility(View.GONE);
-           useEditIquantity();
-
-            if(company.equals("浦东瀚氏")) {
-                binding.rlCustomer.setVisibility(View.VISIBLE);
-
-                binding.rlTransport.setVisibility(View.VISIBLE);
-                binding.rlMemo.setVisibility(View.VISIBLE);
-            }else {
-                binding.bSearch.setVisibility(View.GONE);
-                binding.tvTotal.setVisibility(View.GONE);
-            }
-
-        }else if(menuBean.getMenushowname().equals("委外发料")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-            binding.rlUpdate.setVisibility(View.GONE);
-        }else  if(menuBean.getMenushowname().equals("采购入库")){
-            if(company.equals("瑞格菲克斯")){
-              useEditIquantity();
-            }
-            if(company.equals("浦东瀚氏")) {
-                binding.ivHelp.setVisibility(View.VISIBLE);
-            }
-            if(company.equals("新傲科技")){
-                binding.lBatch.setVisibility(View.GONE);
-                binding.lBoxcode.setVisibility(View.VISIBLE);
-                binding.tvBoxcode.setText("箱码：");
-
-
-
-                  useEditIquantity();
-
-                arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity(defalultIquantity+"");
-
-                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
-
-                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
-
-                binding.setBean(arrivalHeadBean);
-            }
-
-        }else  if(menuBean.getMenushowname().equals("到货入库")){
-
-        }else  if(menuBean.getMenushowname().equals("到货确认")){
-            binding.rlUpdate.setVisibility(View.GONE);
-            binding.rlCwhcode.setVisibility(View.GONE);
-        }else  if(menuBean.getMenushowname().equals("产成品入库")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-
-            binding.rlUpdate.setVisibility(View.GONE);
-        }else  if(menuBean.getMenushowname().equals("货位调整")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-
-            if(company.equals("浦东瀚氏")) {
-                binding.rlUpdate.setVisibility(View.VISIBLE);
-                 useEditIquantity();
-            }
-            if(company.equals("林肯SKF")) {
-               binding.rlCwhcode.setVisibility(View.GONE);
-                binding.lCposition.setVisibility(View.VISIBLE);
-            }
-
-            if(company.equals("瑞格菲克斯")){
-                binding.rlUpdate.setVisibility(View.VISIBLE);
-            }else  if(company.equals("新傲科技")) {
-                binding.rlUpdate.setVisibility(View.VISIBLE);
-                binding.bAdjustment.setVisibility(View.VISIBLE);
-                useEditIquantity();
-                binding.lBatch.setVisibility(View.GONE);
-                binding.lBoxcode.setVisibility(View.VISIBLE);
-
-                arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity(defalultIquantity+"");
-                binding.setBean(arrivalHeadBean);
-            }
-
-        }else  if(menuBean.getMenushowname().equals("采购到货")){
-            binding.rlCdefine10.setVisibility(View.VISIBLE);
-            binding.rlUpdate.setVisibility(View.GONE);
-            binding.tvCcodekey.setText("采购订单号：");
-            binding.rlCwhcode.setVisibility(View.GONE);
-        }else  if(menuBean.getMenushowname().equals("存货盘点")){
-           useEditIquantity();
-        } else  if(menuBean.getMenushowname().equals("补料发料")){
-          useEditIquantity();
-        } else  if(menuBean.getMenushowname().equals("采购退料")){
-           useEditIquantity();
-            binding.lCpocode.setVisibility(View.VISIBLE);
-        }else  if(menuBean.getMenushowname().equals("库存调拨")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-            binding.rlUpdate.setVisibility(View.VISIBLE);
-            useEditIquantity();
-            if(company.equals("浦东瀚氏")){
-                    binding.rlTransport.setVisibility(View.VISIBLE);
-                    binding.rlMemo.setVisibility(View.VISIBLE);
-
-            }
-        }else if(menuBean.getMenushowname().equals("销售出库")){
-            binding.lCvenabbname.setVisibility(View.GONE);
-
-
-            if(company.equals("浦东瀚氏")){
-
-                binding.bSearch.setVisibility(View.VISIBLE);
-                binding.tvTotal.setVisibility(View.VISIBLE);
-               useEditIquantity();
-            }else  if(company.equals("新傲科技")){
-                binding.lBatch.setVisibility(View.GONE);
-                binding.lBoxcode.setVisibility(View.VISIBLE);
-                binding.tvCinvcode.setVisibility(View.GONE);
-                binding.rlCwhcode.setVisibility(View.GONE);
-
-                    useEditIquantity();
-
-
-                arrivalHeadBean=new ArrivalHeadBean();
-                arrivalHeadBean.setIquantity(defalultIquantity+"");
-
-                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
-                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
-                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
-                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
-
-                binding.setBean(arrivalHeadBean);
-            }else {
-                binding.bSearch.setVisibility(View.GONE);
-                binding.tvTotal.setVisibility(View.GONE);
-            }
-
-
-
-        }else if(menuBean.getMenushowname().equals("备货调拨")){
-
-            binding.rlUpdate.setVisibility(View.VISIBLE);
-            useEditIquantity();
-            if(company.equals("浦东瀚氏")){
-                binding.rlTransport.setVisibility(View.VISIBLE);
-                binding.rlMemo.setVisibility(View.VISIBLE);
-
-
-            }
-
-        }else if(menuBean.getMenushowname().equals("发货出库")){
-
-            binding.tvBatch.setText("客户箱码：");
-            binding.lYhCode.setVisibility(View.VISIBLE);
-            binding.rlCwhcode.setVisibility(View.GONE);
-            binding.lCustomer.setVisibility(View.VISIBLE);
-            binding.lWarehouse.setVisibility(View.VISIBLE);
-            binding.lCvenabbname.setVisibility(View.GONE);
-            useEditIquantity();
-
-
-
-        }
 
 
 
@@ -1238,6 +996,7 @@ public class ProductionwarehousingActivity extends BaseActivity {
                 }
 
             }
+            setList();
 
 
     }
@@ -1395,7 +1154,249 @@ public class ProductionwarehousingActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        menuBean=getIntent().getParcelableExtra("menubean");
+        Untils.initTitle(menuBean.getMenushowname(),this);
+        sharedPreferences=getSharedPreferences("sp",MODE_PRIVATE);
 
+        detailPreferences=getSharedPreferences(menuBean.getMenucode() + "Detail" ,0);
+        detailsList=Untils.getDetails(detailPreferences);
+        if(getIntent().getIntExtra("position",-1)!=-1){
+            confirmlistBean=detailsList.get(getIntent().getIntExtra("position",-1));
+        }
+
+        if(menuBean.getMenucode().equals("SCRK")
+                ||menuBean.getMenushowname().equals("其他入库")
+                ||menuBean.getMenucode().equals("HZCLCK")
+        ){
+            binding.lCvenabbname.setVisibility(View.GONE);
+            useEditIquantity();
+            if(company.equals("浦东瀚氏")) {
+                binding.lTray.setVisibility(View.VISIBLE);
+                binding.ivHelp.setVisibility(View.VISIBLE);
+            }else if(company.equals("新傲科技")){
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+                binding.tvCinvcode.setVisibility(View.GONE);
+                useEditIquantity();
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
+                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
+                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
+                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
+                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
+                binding.setBean(arrivalHeadBean);
+            }
+        }else if(menuBean.getMenushowname().equals("其他出库")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+            useEditIquantity();
+            if(company.equals("新傲科技")){
+
+                useEditIquantity();
+
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+                binding.tvCinvcode.setVisibility(View.GONE);
+                binding.rlCwhcode.setVisibility(View.GONE);
+
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
+
+                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
+                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
+                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
+                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
+
+                binding.setBean(arrivalHeadBean);
+            }
+        }else if(menuBean.getMenushowname().equals("材料出库")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+
+            if(company.equals("林肯SKF")) {
+                useEditIquantity();
+                binding.bSearch.setVisibility(View.VISIBLE);
+                binding.tvTotal.setVisibility(View.VISIBLE);
+            }else if(company.equals("新傲科技")){
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+                binding.tvCinvcode.setVisibility(View.GONE);
+                binding.rlCwhcode.setVisibility(View.GONE);
+
+
+                useEditIquantity();
+
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
+
+                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
+                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
+                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
+                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
+
+                binding.setBean(arrivalHeadBean);
+            } else {
+                useEditIquantity();
+                binding.bSearch.setVisibility(View.GONE);
+                binding.tvTotal.setVisibility(View.GONE);
+            }
+
+        }else if(menuBean.getMenushowname().equals("销售发货")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+            binding.rlUpdate.setVisibility(View.GONE);
+            useEditIquantity();
+
+            if(company.equals("浦东瀚氏")) {
+                binding.rlCustomer.setVisibility(View.VISIBLE);
+
+                binding.rlTransport.setVisibility(View.VISIBLE);
+                binding.rlMemo.setVisibility(View.VISIBLE);
+            }else {
+                binding.bSearch.setVisibility(View.GONE);
+                binding.tvTotal.setVisibility(View.GONE);
+            }
+
+        }else if(menuBean.getMenushowname().equals("委外发料")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+            binding.rlUpdate.setVisibility(View.GONE);
+        }else  if(menuBean.getMenushowname().equals("采购入库")){
+            if(company.equals("瑞格菲克斯")){
+                useEditIquantity();
+            }
+            if(company.equals("浦东瀚氏")) {
+                binding.ivHelp.setVisibility(View.VISIBLE);
+            }
+            if(company.equals("新傲科技")){
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+                binding.tvBoxcode.setText("箱码：");
+
+
+
+                useEditIquantity();
+
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
+
+                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
+
+                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
+
+                binding.setBean(arrivalHeadBean);
+            }
+
+        }else  if(menuBean.getMenushowname().equals("到货入库")){
+
+        }else  if(menuBean.getMenushowname().equals("到货确认")){
+            binding.rlUpdate.setVisibility(View.GONE);
+            binding.rlCwhcode.setVisibility(View.GONE);
+        }else  if(menuBean.getMenushowname().equals("产成品入库")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+
+            binding.rlUpdate.setVisibility(View.GONE);
+        }else  if(menuBean.getMenushowname().equals("货位调整")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+
+            if(company.equals("浦东瀚氏")) {
+                binding.rlUpdate.setVisibility(View.VISIBLE);
+                useEditIquantity();
+            }
+            if(company.equals("林肯SKF")) {
+                binding.rlCwhcode.setVisibility(View.GONE);
+                binding.lCposition.setVisibility(View.VISIBLE);
+            }
+
+            if(company.equals("瑞格菲克斯")){
+                binding.rlUpdate.setVisibility(View.VISIBLE);
+            }else  if(company.equals("新傲科技")) {
+                binding.rlUpdate.setVisibility(View.VISIBLE);
+                binding.bAdjustment.setVisibility(View.VISIBLE);
+                useEditIquantity();
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
+                binding.setBean(arrivalHeadBean);
+            }
+
+        }else  if(menuBean.getMenushowname().equals("采购到货")){
+            binding.rlCdefine10.setVisibility(View.VISIBLE);
+            binding.rlUpdate.setVisibility(View.GONE);
+            binding.tvCcodekey.setText("采购订单号：");
+            binding.rlCwhcode.setVisibility(View.GONE);
+        }else  if(menuBean.getMenushowname().equals("存货盘点")){
+            useEditIquantity();
+        } else  if(menuBean.getMenushowname().equals("补料发料")){
+            useEditIquantity();
+        } else  if(menuBean.getMenushowname().equals("采购退料")){
+            useEditIquantity();
+            binding.lCpocode.setVisibility(View.VISIBLE);
+        }else  if(menuBean.getMenushowname().equals("库存调拨")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+            binding.rlUpdate.setVisibility(View.VISIBLE);
+            useEditIquantity();
+            if(company.equals("浦东瀚氏")){
+                binding.rlTransport.setVisibility(View.VISIBLE);
+                binding.rlMemo.setVisibility(View.VISIBLE);
+
+            }
+        }else if(menuBean.getMenushowname().equals("销售出库")){
+            binding.lCvenabbname.setVisibility(View.GONE);
+
+
+            if(company.equals("浦东瀚氏")){
+
+                binding.bSearch.setVisibility(View.VISIBLE);
+                binding.tvTotal.setVisibility(View.VISIBLE);
+                useEditIquantity();
+            }else  if(company.equals("新傲科技")){
+                binding.lBatch.setVisibility(View.GONE);
+                binding.lBoxcode.setVisibility(View.VISIBLE);
+                binding.tvCinvcode.setVisibility(View.GONE);
+                binding.rlCwhcode.setVisibility(View.GONE);
+
+                useEditIquantity();
+
+
+                arrivalHeadBean=new ArrivalHeadBean();
+                arrivalHeadBean.setIquantity(defalultIquantity+"");
+
+                arrivalHeadBean.setCcode(confirmlistBean.getField9value());
+                arrivalHeadBean.setCbatch(confirmlistBean.getField5value());
+                arrivalHeadBean.setcInvName(confirmlistBean.getField3value());
+                arrivalHeadBean.setCvenabbname(getIntent().getStringExtra("cvenabbname"));
+
+                binding.setBean(arrivalHeadBean);
+            }else {
+                binding.bSearch.setVisibility(View.GONE);
+                binding.tvTotal.setVisibility(View.GONE);
+            }
+
+
+
+        }else if(menuBean.getMenushowname().equals("备货调拨")){
+
+            binding.rlUpdate.setVisibility(View.VISIBLE);
+            useEditIquantity();
+            if(company.equals("浦东瀚氏")){
+                binding.rlTransport.setVisibility(View.VISIBLE);
+                binding.rlMemo.setVisibility(View.VISIBLE);
+
+
+            }
+
+        }else if(menuBean.getMenushowname().equals("发货出库")){
+
+            binding.tvBatch.setText("客户箱码：");
+            binding.lYhCode.setVisibility(View.VISIBLE);
+            binding.rlCwhcode.setVisibility(View.GONE);
+            binding.lCustomer.setVisibility(View.VISIBLE);
+            binding.lWarehouse.setVisibility(View.VISIBLE);
+            binding.lCvenabbname.setVisibility(View.GONE);
+            useEditIquantity();
+
+
+
+        }
         getCount();
     }
     //获取已加入清单量
